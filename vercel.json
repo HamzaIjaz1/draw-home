@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run common:build && npm run ui:build:previewPage",
+  "outputDirectory": "packages/ui/preview-dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "devCommand": "npm run ui:dev"
+}
