@@ -1,0 +1,1 @@
+{"version":3,"file":"encodeSvgAsDataUri.js","sourceRoot":"","sources":["../../src/utils/encodeSvgAsDataUri.ts"],"names":[],"mappings":";;;AAAO,MAAM,kBAAkB,GAAG,CAAC,GAAW,EAAE,EAAE;IAChD,MAAM,OAAO,GAAG,MAAM,CAAC,kBAAkB,CAAC,GAAG,CAAC,CAAC;IAC/C,OAAO,2BAA2B,OAAO,EAAE,CAAC;AAC9C,CAAC,CAAC;AAHW,QAAA,kBAAkB,sBAG7B"}

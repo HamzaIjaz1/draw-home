@@ -1,0 +1,19 @@
+{
+  "extends": "../common/tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "rootDir": "src",
+    "noEmit": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext",
+    ],
+  },
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "src/migrateProject/bundle.js",
+  ],
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "ts:noWatch": {
+      "outputLogs": "new-only",
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/packages/common/tsconfig.base.json"
+      ]
+    },
+    "lint": {
+      "outputLogs": "new-only",
+      "env": [
+        "IS_HUSKY_PRECOMMIT_TIME"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/.eslintrc.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+export declare const Container: import("@emotion/styled").StyledComponent<import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {}>;
+export declare const InputLabel: import("@emotion/styled").StyledComponent<import("@mui/material").InputLabelOwnProps & Pick<import("@mui/material").FormLabelOwnProps, "color" | "filled"> & import("@mui/material/OverridableComponent").CommonProps & Omit<Omit<import("react").DetailedHTMLProps<import("react").LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, "ref"> & {
+    ref?: ((instance: HTMLLabelElement | null) => void) | import("react").RefObject<HTMLLabelElement> | null | undefined;
+}, "disabled" | "color" | "margin" | "children" | "className" | "style" | "size" | "filled" | "classes" | "sx" | "variant" | "error" | "required" | "focused" | "disableAnimation" | "shrink"> & import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, {}, {}>;
+//# sourceMappingURL=styles.d.ts.map

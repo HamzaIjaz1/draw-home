@@ -1,0 +1,21 @@
+import { UUID } from '../brands';
+export declare function castTo<T = never>(e: [T] extends [never] ? never : unknown): asserts e is typeof e & T;
+export declare const checkIsNotNever: <T>(...e: [T] extends [never] ? [] : [T]) => void;
+export declare const clamp: <T1 extends number, T2 extends number, T3 extends number>(min: T1, val: T2, max: T3) => T1 | T2 | T3;
+export declare const generateUUID: () => UUID;
+export declare const capitalize: <T extends string>(s: T) => Capitalize<T>;
+export type SafeOmit<T, U extends keyof T> = Omit<T, U>;
+export type StrictExtract<T, U extends T> = Extract<T, U>;
+export type StrictExclude<T, U extends T> = Exclude<T, U>;
+export type DistributivePick<T, K extends keyof T> = T extends T ? Pick<T, K> : never;
+export type DistributiveSafeOmit<T, U extends keyof T> = T extends T ? SafeOmit<T, U> : never;
+export declare const fixIEEE: (e: number) => number;
+type CutOffLastLetter<T extends string, Result extends string = ''> = (T extends `${infer First}${infer Rest}` ? Rest extends '' ? Result : CutOffLastLetter<Rest, `${Result}${First}`> : Result);
+export declare const cutOffLastLetter: <T extends string>(e: T) => CutOffLastLetter<T>;
+export declare const escapeRegExp: (s: string) => string;
+export declare const isPromiseSettled: (promise: Promise<unknown>) => Promise<boolean>;
+export declare const letIn: <T, R>(e: T, fn: (e: T) => R) => R;
+export declare const isSubset: <T>(set: T[], subset: Array<NoInfer<T>>) => boolean;
+export declare const areTheSameContentArrays: <T extends string | number>(_arr1: T[], _arr2: Array<NoInfer<T>>) => boolean;
+export {};
+//# sourceMappingURL=helpers.d.ts.map

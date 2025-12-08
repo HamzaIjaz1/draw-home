@@ -1,0 +1,35 @@
+{
+  "name": "@draw-house/common",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint --ext js,jsx,ts,tsx --max-warnings=0 src .eslintrc.js",
+    "lint:fix": "npm run lint -- --fix",
+    "ts:noWatch": "tsc -p tsconfig.json",
+    "ts": "npm run ts:noWatch -- --watch",
+    "build": "rm -rf ./dist && npm run build:noRemove",
+    "build:noRemove": "tsc -p tsconfig.json",
+    "build:watch": "concurrently -r \"npm run ts\" \"clean-tsc -w -p tsconfig.json\""
+  },
+  "dependencies": {
+    "@arthurka/ts-utils": "3.17.1",
+    "assert": "2.1.0",
+    "query-string": "9.1.2",
+    "styled-components": "6.1.8",
+    "uuid": "8.3.2",
+    "zod": "3.25.74"
+  },
+  "devDependencies": {
+    "@arthurka/ts-reset": "1.13.0",
+    "@total-typescript/ts-reset": "0.5.1",
+    "@tsconfig/node18-strictest": "1.0.0",
+    "@types/assert": "1.5.10",
+    "@types/node": "20.11.17",
+    "@types/uuid": "9.0.8",
+    "clean-tsc": "1.0.4",
+    "concurrently": "8.2.2",
+    "typescript": "5.5.2"
+  }
+}

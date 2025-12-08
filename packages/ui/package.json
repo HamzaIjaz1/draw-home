@@ -1,0 +1,52 @@
+{
+  "name": "@draw-house/ui",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext js,jsx,ts,tsx --max-warnings=0 src .eslintrc.js vite.config.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "ts:noWatch": "tsc -p tsconfig.json",
+    "ts": "npm run ts:noWatch -- --watch",
+    "_vite": "nodemon --delay 0.5 -e js -w ../../.env -w ../common/dist -x \"dotenv -e ../../.env -- vite --force\"",
+    "dev": "concurrently -r \"npm run build:watch\" \"npm run _vite\"",
+    "build:previewPage": "dotenv -e ../../.env -- vite build",
+    "build:lib": "rm -rf ./dist && npm run build:noRemove",
+    "build:noRemove": "tsc -p tsconfig.json",
+    "build:watch": "concurrently -r \"npm run ts -- --preserveWatchOutput\" \"clean-tsc -w -p tsconfig.json\"",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@arthurka/ts-utils": "3.17.1",
+    "@draw-house/common": "1.0.0",
+    "@emotion/react": "11.11.4",
+    "@emotion/styled": "11.11.5",
+    "@hookform/resolvers": "5.2.1",
+    "@mui/material": "5.15.20",
+    "assert": "2.1.0",
+    "color": "5.0.0",
+    "framer-motion": "11.5.4",
+    "pretty-bytes": "6.1.1",
+    "react": "18.2.0",
+    "react-compare-slider": "4.0.0-0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.62.0",
+    "zod": "3.25.74"
+  },
+  "devDependencies": {
+    "@arthurka/ts-reset": "1.13.0",
+    "@total-typescript/ts-reset": "0.5.1",
+    "@tsconfig/node18-strictest": "1.0.0",
+    "@types/assert": "1.5.10",
+    "@types/node": "20.11.17",
+    "@types/react": "18.2.55",
+    "@types/react-dom": "18.2.19",
+    "@vitejs/plugin-react": "4.3.1",
+    "clean-tsc": "1.0.4",
+    "concurrently": "8.2.2",
+    "dotenv-cli": "7.4.2",
+    "nodemon": "3.0.3",
+    "typescript": "5.5.2",
+    "vite": "5.2.13",
+    "vite-plugin-html": "3.2.2"
+  }
+}

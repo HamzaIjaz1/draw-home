@@ -1,0 +1,44 @@
+{
+  "name": "@draw-house/landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext js,jsx,ts,tsx --max-warnings=0 src .eslintrc.js next.config.js",
+    "lint:fix": "npm run lint -- --fix",
+    "ts:noWatch": "tsc --noEmit -p tsconfig.json",
+    "ts": "npm run ts:noWatch -- --watch",
+    "_next": "rm -rf ./.next && nodemon --delay 0.5 -e js -w ../../.env -x \"dotenv -e ../../.env -- next dev -p 3002\"",
+    "ts:watch": "npm run ts -- --preserveWatchOutput",
+    "next": "npm run _next",
+    "dev": "concurrently -r \"npm run ts:watch\" \"npm run next\"",
+    "build": "rm -rf ./.next && dotenv -e ../../.env -- next build",
+    "start": "dotenv -e ../../.env -- next start -p 3002"
+  },
+  "dependencies": {
+    "@arthurka/ts-utils": "3.17.1",
+    "@draw-house/common": "1.0.0",
+    "@hookform/resolvers": "5.2.1",
+    "assert": "2.1.0",
+    "dotenv-cli": "7.4.2",
+    "next": "14.2.4",
+    "nodemailer": "6.9.14",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.62.0",
+    "styled-components": "6.1.8",
+    "zod": "3.25.74"
+  },
+  "devDependencies": {
+    "@arthurka/ts-reset": "1.13.0",
+    "@total-typescript/ts-reset": "0.5.1",
+    "@types/assert": "1.5.10",
+    "@types/node": "20.11.17",
+    "@types/nodemailer": "6.4.15",
+    "@types/react": "18.2.55",
+    "@types/react-dom": "18.2.19",
+    "concurrently": "8.2.2",
+    "eslint-config-next": "14.2.4",
+    "nodemon": "3.0.3",
+    "typescript": "5.5.2"
+  }
+}

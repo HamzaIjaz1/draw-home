@@ -1,0 +1,1 @@
+{"version":3,"file":"SettingsSpaceTitle.d.ts","sourceRoot":"","sources":["../../src/components/SettingsSpaceTitle.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAY9D,MAAM,MAAM,uBAAuB,GAAG;IACpC,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAEF,eAAO,MAAM,kBAAkB,4BAA6B,uBAAuB,GAAG,aAAa,4CAElG,CAAC"}

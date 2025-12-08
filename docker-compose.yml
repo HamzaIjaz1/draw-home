@@ -1,0 +1,50 @@
+services:
+  landing-page:
+    networks:
+      - draw-house
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: landing-page
+    image: draw-house_landing-page
+    container_name: draw-house_landing-page
+    restart: unless-stopped
+    expose:
+      - 3002
+    entrypoint: npm run landing:start
+
+  floor-plan-scanner:
+    networks:
+      - draw-house
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: floor-plan-scanner
+    image: draw-house_floor-plan-scanner
+    container_name: draw-house_floor-plan-scanner
+    restart: unless-stopped
+    expose:
+      - 3003
+    volumes:
+      - ./packages/floor-plan-scanner/checkpoint:/app/packages/floor-plan-scanner/checkpoint
+    env_file: .env
+    entrypoint: npm run floor-plan-scanner:start
+
+  static-files:
+    networks:
+      - draw-house
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: static-files
+      args:
+        DEPLOY_ENV: ${DEPLOY_ENV:?}
+    image: draw-house_static-files
+    container_name: draw-house_static-files
+    volumes:
+      - ./prod-build:/volume
+    command: sh -c "rm -rf /volume/* && cp -r /app/* /volume/"
+
+networks:
+  draw-house:
+    external: true

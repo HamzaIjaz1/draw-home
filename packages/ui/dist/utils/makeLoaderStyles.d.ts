@@ -1,0 +1,2 @@
+export declare const makeLoaderStyles: (pseudoElement: "::before" | "::after", isLoading: boolean, color: string) => import("@emotion/utils").SerializedStyles;
+//# sourceMappingURL=makeLoaderStyles.d.ts.map

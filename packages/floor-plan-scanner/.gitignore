@@ -1,0 +1,9 @@
+checkpoint
+results
+__pycache__
+public/uploaded-floor-plans
+python3.bat
+
+# Test files
+test_threshold_system.py
+analyze_low_thresholds.py

@@ -1,0 +1,39 @@
+@font-face {
+  /* designs equivalent of "Sofia Pro" is "Roboto" */
+  font-family: 'Sofia Pro';
+  src: url('/fonts/sofia-pro/light.otf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('/fonts/sofia-pro/regular.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('/fonts/sofia-pro/medium.otf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('/fonts/sofia-pro/semi-bold.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('/fonts/caveat/Caveat-VariableFont_wght.ttf');
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans/DMSans-VariableFont_opsz,wght.ttf');
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-VariableFont_opsz,wght.ttf');
+  font-weight: 100 900;
+}

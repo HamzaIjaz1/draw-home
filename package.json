@@ -1,0 +1,44 @@
+{
+  "name": "draw-house",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prune": "rm -rf node_modules && npm run prune:sub",
+    "prune:sub": "rm -rf packages/*/node_modules",
+    "prune:hard": "npm run start-checks && rm -rf package-lock.json && npm run prune",
+    "common:build:watch": "npm run start-checks && npm run build:watch -w packages/common",
+    "common:build": "npm run start-checks && npm run build -w packages/common",
+    "planner:dev": "npm run start-checks && npm run dev -w packages/planner",
+    "planner:build": "npm run start-checks && npm run build -w packages/planner",
+    "planner:preview": "npm run start-checks && npm run preview -w packages/planner",
+    "planner:strapi:migrate-project:build": "npm run start-checks && npm run strapi:migrate-project:build -w packages/planner",
+    "landing:dev": "npm run start-checks && npm run dev -w packages/landing",
+    "landing:ts:watch": "npm run start-checks && npm run ts:watch -w packages/landing",
+    "landing:next": "npm run start-checks && npm run next -w packages/landing",
+    "landing:build": "npm run start-checks && npm run build -w packages/landing",
+    "landing:start": "npm run start-checks && npm run start -w packages/landing",
+    "ui:dev": "npm run start-checks && npm run dev -w packages/ui",
+    "ui:build:lib": "npm run start-checks && npm run build:lib -w packages/ui",
+    "ui:build:previewPage": "npm run start-checks && npm run build:previewPage -w packages/ui",
+    "ui:preview": "npm run start-checks && npm run preview -w packages/ui",
+    "floor-plan-scanner:dev": "npm run start-checks && npm run dev -w packages/floor-plan-scanner",
+    "floor-plan-scanner:build": "npm run start-checks && npm run build -w packages/floor-plan-scanner",
+    "floor-plan-scanner:start": "npm run start-checks && npm run start -w packages/floor-plan-scanner",
+    "repo-fix": "node helpers/eslint-helper.js --fix",
+    "start-checks": "node helpers/start-checks.js && node helpers/check-package-versions.js && node helpers/create-eslint-rules-custom.js && node helpers/modify-node-modules/index.js --check",
+    "preinstall": "node helpers/create-eslint-rules-custom.js && node helpers/modify-node-modules/index.js && npm run start-checks",
+    "prepare": "node -e \"try { require('husky').install(); } catch(e) { if(e.code !== 'MODULE_NOT_FOUND') throw e; }\""
+  },
+  "devDependencies": {
+    "@arthurka/eslint": "3.15.4",
+    "@arthurka/ts-utils": "3.17.1",
+    "@types/semver": "7.5.6",
+    "husky": "8.0.3",
+    "semver": "7.6.0",
+    "turbo": "2.5.8"
+  },
+  "packageManager": "npm@10.2.4",
+  "workspaces": [
+    "packages/*"
+  ]
+}

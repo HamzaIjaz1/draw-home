@@ -1,0 +1,45 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RoofDormerId = exports.isRoofDormerId = exports.RoofId = exports.isRoofId = exports.StairId = exports.isStairId = exports.SpaceId = exports.isSpaceId = exports.LevelId = exports.isLevelId = exports.CustomModelId = exports.isCustomModelId = exports.WallFurnitureId = exports.isWallFurnitureId = exports.WallId = exports.isWallId = exports.UUID = exports.isUUID = void 0;
+const uuid_1 = require("uuid");
+const utils_1 = require("../utils");
+const common_1 = require("./common");
+const isUUID = (e) => (true
+    && (0, common_1.isNonEmptyString)(e)
+    && (0, uuid_1.validate)(e));
+exports.isUUID = isUUID;
+const UUID = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isUUID, 'UUID'));
+exports.UUID = UUID;
+const isWallId = (e) => (0, exports.isUUID)(e);
+exports.isWallId = isWallId;
+const WallId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isWallId, 'WallId'));
+exports.WallId = WallId;
+const isWallFurnitureId = (e) => (0, exports.isUUID)(e);
+exports.isWallFurnitureId = isWallFurnitureId;
+const WallFurnitureId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isWallFurnitureId, 'WallFurnitureId'));
+exports.WallFurnitureId = WallFurnitureId;
+const isCustomModelId = (e) => (0, exports.isUUID)(e);
+exports.isCustomModelId = isCustomModelId;
+const CustomModelId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isCustomModelId, 'CustomModelId'));
+exports.CustomModelId = CustomModelId;
+const isLevelId = (e) => (0, exports.isUUID)(e);
+exports.isLevelId = isLevelId;
+const LevelId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isLevelId, 'LevelId'));
+exports.LevelId = LevelId;
+const isSpaceId = (e) => (0, exports.isUUID)(e);
+exports.isSpaceId = isSpaceId;
+const SpaceId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isSpaceId, 'SpaceId'));
+exports.SpaceId = SpaceId;
+const isStairId = (e) => (0, exports.isUUID)(e);
+exports.isStairId = isStairId;
+const StairId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isStairId, 'StairId'));
+exports.StairId = StairId;
+const isRoofId = (e) => (0, exports.isUUID)(e);
+exports.isRoofId = isRoofId;
+const RoofId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isRoofId, 'RoofId'));
+exports.RoofId = RoofId;
+const isRoofDormerId = (e) => (0, exports.isUUID)(e);
+exports.isRoofDormerId = isRoofDormerId;
+const RoofDormerId = (e) => ((0, utils_1.initializeByTypeGuard)(e, exports.isRoofDormerId, 'RoofDormerId'));
+exports.RoofDormerId = RoofDormerId;
+//# sourceMappingURL=UUID.js.map

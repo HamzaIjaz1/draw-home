@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ReplaceElementInfoRow/index.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAG9D,MAAM,MAAM,0BAA0B,GAAG;IACvC,GAAG,EAAE,MAAM,CAAC;IACZ,IAAI,EAAE,MAAM,CAAC;IACb,eAAe,EAAE,MAAM,CAAC;CACzB,CAAC;AAEF,eAAO,MAAM,qBAAqB,+CAK/B,0BAA0B,GAAG,aAAa,4CAM5C,CAAC"}

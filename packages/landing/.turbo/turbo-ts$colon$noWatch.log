@@ -1,0 +1,4 @@
+
+> @draw-house/landing@1.0.0 ts:noWatch
+> tsc --noEmit -p tsconfig.json
+

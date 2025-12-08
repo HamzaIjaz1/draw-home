@@ -1,0 +1,6 @@
+
+> @draw-house/landing@1.0.0 lint
+> eslint --ext js,jsx,ts,tsx --max-warnings=0 src .eslintrc.js next.config.js
+
+@arthurka/eslint: frontend workspace has been detected. Apply frontend linter config.
+@arthurka/eslint: frontend workspace has been detected. Apply frontend linter config.

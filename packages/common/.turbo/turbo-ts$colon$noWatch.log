@@ -1,0 +1,4 @@
+
+> @draw-house/common@1.0.0 ts:noWatch
+> tsc -p tsconfig.json
+

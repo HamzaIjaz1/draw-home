@@ -1,0 +1,20 @@
+torch==2.7.1+cpu
+torchvision==0.22.1+cpu
+numpy==2.2.4
+ultralytics==8.2.8
+
+# Image processing (essential)
+opencv-python-headless==4.11.0.86
+pillow==11.1.0
+
+# Data processing (essential for classification)
+pandas==2.3.0
+
+# Optimization (essential for IP)
+pulp==3.1.1
+
+# Optional packages (can be removed if not used in production)
+scikit-image==0.25.2  # Remove if not using skimage-specific functions
+tqdm==4.67.1  # Remove if progress bars not needed in production
+psutil==6.1.1  # Remove if system monitoring not needed
+streamlit==1.46.0  # Remove if only using API endpoints

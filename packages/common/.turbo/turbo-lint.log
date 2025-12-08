@@ -1,0 +1,7 @@
+
+> @draw-house/common@1.0.0 lint
+> eslint --ext js,jsx,ts,tsx --max-warnings=0 src .eslintrc.js
+
+@arthurka/eslint: backend workspace has been detected. Apply backend linter config.
+@arthurka/eslint: backend workspace has been detected. Apply backend linter config.
+Warning: React version not specified in eslint-plugin-react settings. See https://github.com/jsx-eslint/eslint-plugin-react#configuration .

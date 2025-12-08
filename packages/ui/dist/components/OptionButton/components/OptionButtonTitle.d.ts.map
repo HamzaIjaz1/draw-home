@@ -1,0 +1,1 @@
+{"version":3,"file":"OptionButtonTitle.d.ts","sourceRoot":"","sources":["../../../../src/components/OptionButton/components/OptionButtonTitle.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAa9D,MAAM,MAAM,sBAAsB,GAAG;IACnC,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAEF,eAAO,MAAM,iBAAiB,4BAA6B,sBAAsB,GAAG,aAAa,4CAEhG,CAAC"}

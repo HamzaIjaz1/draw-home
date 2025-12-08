@@ -1,0 +1,1 @@
+{"version":3,"file":"commonUrls.js","sourceRoot":"","sources":["../src/commonUrls.ts"],"names":[],"mappings":";;;AAAa,QAAA,oBAAoB,GAAG;IAClC,cAAc,EAAE;QACd,CAAC,EAAE,mBAAmB;QACtB,IAAI,IAAI;YACN,OAAO,GAAG,IAAI,CAAC,CAAC,OAAgB,CAAC;QACnC,CAAC;QACD,IAAI,SAAS;YACX,OAAO,GAAG,IAAI,CAAC,CAAC,YAAqB,CAAC;QACxC,CAAC;KACF;CACO,CAAC"}

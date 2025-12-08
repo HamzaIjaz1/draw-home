@@ -1,0 +1,58 @@
+import { Theme } from '@mui/material';
+import type { IconButtonProps, State } from '.';
+export type StyledButtonProps = {
+    borderRadius: NonNullable<IconButtonProps['borderRadius']>;
+    size: NonNullable<IconButtonProps['size']>;
+    state: State;
+    userVariant: NonNullable<IconButtonProps['variant']>;
+    isLoading: boolean;
+    pulseGlow: IconButtonProps['pulseGlow'];
+};
+export declare const sizeMdDesktop = 52;
+export declare const StyledButton: import("@emotion/styled").StyledComponent<{
+    disabled?: boolean;
+    color?: import("@mui/types").OverridableStringUnion<"inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning", import("@mui/material").ButtonPropsColorOverrides>;
+    children?: import("react").ReactNode;
+    style?: import("react").CSSProperties;
+    title?: string | undefined;
+    tabIndex?: NonNullable<import("react").HTMLAttributes<any>["tabIndex"]>;
+    role?: import("react").AriaRole | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLButtonElement> | undefined;
+    variant?: import("@mui/types").OverridableStringUnion<"text" | "outlined" | "contained", import("@mui/material").ButtonPropsVariantOverrides>;
+    disableRipple?: boolean;
+    disableTouchRipple?: boolean;
+    type?: "submit" | "reset" | "button" | undefined;
+    endIcon?: import("react").ReactNode;
+    startIcon?: import("react").ReactNode;
+    component?: import("react").ElementType;
+} & import("@draw-house/common/dist/utils").WithClassName & import("react").RefAttributes<HTMLButtonElement> & import("@mui/system").MUIStyledCommonProps<Theme> & StyledButtonProps, {}, {}>;
+export declare const HandPointerIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const TextIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const LayersIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const CloseIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & {
+    noBackground?: boolean;
+} & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const GearIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const HouseIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const FloppyDiskIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const HamburgerMenuIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const LessThenSignIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const CircleAroundDotIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const ToolsIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const DuplicateIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const EyeIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const EyeClosedIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const BinIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const DoorIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const WindowIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const FireplaceIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const RoofIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const CenterWallAttachmentIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const OutsideWallAttachmentIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const InsideWallAttachmentIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const UploadIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const ExpandArrowsIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const ArrowRotateLeftIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const ArrowRotateRightIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("../Icons").IconProps & import("@mui/system").MUIStyledCommonProps<Theme>, {}, {}>;
+export declare const Image: import("@emotion/styled").StyledComponent<import("@mui/system").MUIStyledCommonProps<Theme>, import("react").DetailedHTMLProps<import("react").ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, {}>;
+//# sourceMappingURL=styles.d.ts.map
