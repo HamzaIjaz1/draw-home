@@ -1,1 +1,0 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../src/components/Hub/LogInSuggestion/index.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAO9D,MAAM,MAAM,oBAAoB,GAAG;IACjC,IAAI,EAAE,MAAM,CAAC;IACb,UAAU,EAAE,MAAM,CAAC;IACnB,OAAO,EAAE,MAAM,IAAI,CAAC;CACrB,CAAC;AAEF,eAAO,MAAM,eAAe,mCAIzB,oBAAoB,GAAG,aAAa,4CAUtC,CAAC"}

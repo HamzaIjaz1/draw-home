@@ -1,1 +1,0 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/PromptTextArea/index.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAW9D,MAAM,MAAM,mBAAmB,GAAG;IAChC,KAAK,EAAE,MAAM,CAAC;IACd,QAAQ,EAAE,CAAC,CAAC,EAAE,MAAM,KAAK,IAAI,CAAC;IAC9B,WAAW,CAAC,EAAE,MAAM,CAAC;CACtB,CAAC;AAEF,eAAO,MAAM,cAAc,iDAKxB,mBAAmB,GAAG,aAAa,4CAWrC,CAAC"}

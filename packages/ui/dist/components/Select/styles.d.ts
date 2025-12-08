@@ -1,5 +1,0 @@
-export declare const Container: import("@emotion/styled").StyledComponent<import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {}>;
-export declare const DropdownSelect: import("@emotion/styled").StyledComponent<import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, import("react").DetailedHTMLProps<import("react").SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>, {}>;
-export declare const Option: import("@emotion/styled").StyledComponent<import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, import("react").DetailedHTMLProps<import("react").OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>, {}>;
-export declare const ArrowIcon: import("@emotion/styled").StyledComponent<import("@draw-house/common/dist/utils").WithClassName & import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, {}, {}>;
-//# sourceMappingURL=styles.d.ts.map

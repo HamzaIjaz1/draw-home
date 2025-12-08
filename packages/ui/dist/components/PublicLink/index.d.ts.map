@@ -1,1 +1,0 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/PublicLink/index.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AA6F9D,MAAM,MAAM,eAAe,GAAG;IAC5B,KAAK,EAAE,MAAM,CAAC;IACd,GAAG,EAAE,MAAM,CAAC;IACZ,UAAU,EAAE,MAAM,CAAC;IACnB,qBAAqB,EAAE,MAAM,CAAC;CAC/B,CAAC;AAIF,eAAO,MAAM,UAAU,kEAMpB,eAAe,GAAG,aAAa,4CAuCjC,CAAC"}

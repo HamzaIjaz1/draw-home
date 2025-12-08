@@ -1,2 +1,0 @@
-export declare const Container: import("@emotion/styled").StyledComponent<import("@mui/system").MUIStyledCommonProps<import("@mui/material").Theme>, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {}>;
-//# sourceMappingURL=styles.d.ts.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"ScopeTextHighlighted.d.ts","sourceRoot":"","sources":["../../../../src/components/ScopeControlRow/components/ScopeTextHighlighted.tsx"],"names":[],"mappings":"AAEA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAW9D,MAAM,MAAM,yBAAyB,GAAG;IACtC,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAEF,eAAO,MAAM,oBAAoB,4BAA6B,yBAAyB,GAAG,aAAa,4CAEtG,CAAC"}

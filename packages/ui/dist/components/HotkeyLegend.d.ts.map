@@ -1,1 +1,0 @@
-{"version":3,"file":"HotkeyLegend.d.ts","sourceRoot":"","sources":["../../src/components/HotkeyLegend.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AA8C9D,MAAM,MAAM,iBAAiB,GAAG;IAC9B,KAAK,EAAE,MAAM,CAAC;CACf,CAAC;AAEF,eAAO,MAAM,YAAY,yBAA0B,iBAAiB,GAAG,aAAa,4CAQnF,CAAC"}

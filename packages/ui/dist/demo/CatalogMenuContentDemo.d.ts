@@ -1,2 +1,0 @@
-export declare const CatalogMenuContentDemo: import("react").MemoExoticComponent<() => import("react/jsx-runtime").JSX.Element | import("react/jsx-runtime").JSX.Element[]>;
-//# sourceMappingURL=CatalogMenuContentDemo.d.ts.map

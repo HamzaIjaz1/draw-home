@@ -1,1 +1,0 @@
-{"version":3,"file":"useCheckDnDSupport.js","sourceRoot":"","sources":["../../src/hooks/useCheckDnDSupport.ts"],"names":[],"mappings":";;;AAAA,4CAA8C;AAEvC,MAAM,kBAAkB,GAAG,GAAG,EAAE;IACrC,MAAM,cAAc,GAAG,IAAA,wBAAa,EAAC,qCAAqC,CAAC,KAAK,KAAK,CAAC;IAEtF,OAAO,EAAE,cAAc,EAAE,CAAC;AAC5B,CAAC,CAAC;AAJW,QAAA,kBAAkB,sBAI7B"}

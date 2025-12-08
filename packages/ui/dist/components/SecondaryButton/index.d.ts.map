@@ -1,1 +1,0 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/SecondaryButton/index.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,+BAA+B,CAAC;AAuB9D,MAAM,MAAM,oBAAoB,GAAG;IACjC,KAAK,CAAC,EAAE,SAAS,GAAG,UAAU,CAAC;IAC/B,IAAI,EAAE,MAAM,CAAC;IACb,OAAO,EAAE,MAAM,IAAI,CAAC;CACrB,CAAC;AAEF,eAAO,MAAM,eAAe,yCAKzB,oBAAoB,GAAG,aAAa,4CAUtC,CAAC"}
