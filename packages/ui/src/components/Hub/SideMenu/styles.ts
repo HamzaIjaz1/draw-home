@@ -17,8 +17,8 @@ export const StyledMenuAccount = styled(MenuAccount)`
 `;
 
 const commonDrawerStyles = css`
-  --left-menu-width: 250px;
-  --vertical-bar-width: 60px;
+  --left-menu-width: 200px;
+  --vertical-bar-width: 48px;
   flex-shrink: 0;
 `;
 
@@ -34,7 +34,7 @@ export const DesktopDrawer = styled(MuiDrawer)(({ theme }) => css`
 
 export const MobileDrawer = styled(MuiDrawer)(({ theme }) => css`
   ${commonDrawerStyles}
-  --left-menu-width: clamp(260px, 100vw - 60px, 330px);
+  --left-menu-width: clamp(208px, 100vw - 48px, 264px);
   display: inherit;
   ${theme.breakpoints.up('md')} {
     display: none;
@@ -55,8 +55,8 @@ export const IconButton = styled(BaseIconButton)(({ theme }) => css`
   top: ${theme.spacing(6)};
 
   svg {
-    width: 34px;
-    height: 34px;
+    width: 27px;
+    height: 27px;
   }
 `);
 

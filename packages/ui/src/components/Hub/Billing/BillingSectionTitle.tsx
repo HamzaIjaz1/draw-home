@@ -7,7 +7,7 @@ export type BillingSectionTitleProps = {
 
 export const BillingSectionTitle: React.FC<BillingSectionTitleProps & WithClassName> = styled('span')`
   font-weight: 500;
-  font-size: 24px;
+  font-size: 19px;
   line-height: 1;
   letter-spacing: 0px;
   vertical-align: middle;

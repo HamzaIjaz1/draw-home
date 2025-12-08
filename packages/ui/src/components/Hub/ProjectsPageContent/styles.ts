@@ -27,9 +27,9 @@ export const ProjectsLayout = styled('div')(({ theme }) => css`
 `);
 
 export const SuggestionText = styled(Typography)(({ theme }) => css`
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 19px;
   text-align: center;
   color: ${theme.palette.common.black};
 `);

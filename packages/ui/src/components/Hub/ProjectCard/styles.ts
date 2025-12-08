@@ -12,7 +12,7 @@ export const Card = styled('div')(({ theme }) => css`
   flex-direction: column;
   justify-content: space-between;
   width: ${CARD_WIDTH_MOBILE};
-  height: 200px;
+  height: 160px;
   border-radius: 6px;
   box-shadow: ${slightShadow};
   background-color: ${theme.palette.background.paper};
@@ -21,7 +21,7 @@ export const Card = styled('div')(({ theme }) => css`
 
   ${theme.breakpoints.up('md')} {
     width: ${CARD_WIDTH_DESKTOP};
-    height: 248px;
+    height: 198px;
   }
 `);
 
@@ -51,9 +51,9 @@ export const Input = styled(MuiInput)(({ theme }) => css`
   border-radius: 5px;
   background-color: #f3f3f3;
 
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 10px;
   color: ${theme.palette.common.black};
 
   input {
@@ -82,9 +82,9 @@ export const MoreIcon = styled(ThreeDotsIcon)(({ theme }) => css`
 `);
 
 export const Title = styled(Typography)(({ theme }) => css`
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 10px;
   color: ${theme.palette.common.black};
 
   button:hover &, button:focus & {

@@ -49,10 +49,10 @@ export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => css`
 `);
 
 export const Title = styled(Typography)(({ theme }) => css`
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 24px;
-  letter-spacing: 0.5px;
+  line-height: 19px;
+  letter-spacing: 0.4px;
   color: ${theme.palette.general.purpleGray};
 
   ${theme.breakpoints.up('md')} {

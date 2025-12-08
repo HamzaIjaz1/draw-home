@@ -40,7 +40,7 @@ export const TemplateButton = ({
           <Image
             src={image}
             width={72}
-            height={72}
+            height={66.73}
             draggable='false'
           />
         )

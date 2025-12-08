@@ -17,7 +17,7 @@ export const DesktopTitles = styled('div')(({ theme }) => css`
 export const DesktopPageSubTitle = styled('h4')`
   all: unset;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.5;
   letter-spacing: 0.01em;
   vertical-align: middle;

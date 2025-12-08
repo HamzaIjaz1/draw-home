@@ -5,10 +5,10 @@ import MuiFormLabel from '@mui/material/FormLabel';
 const iconTitleGap = '14px';
 
 const fontCss = css`
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 24px;
-  letter-spacing: 0.5px;
+  line-height: 19px;
+  letter-spacing: 0.4px;
 `;
 
 export const FormLabel = styled(MuiFormLabel)(({ theme }) => css`
@@ -28,9 +28,9 @@ export const LabelHeading = styled('div')(({ theme }) => css`
 export const StyledInput = styled(TextField)(({ theme, multiline }) => css`
   width: 100%;
   & .MuiInput-root {
-    font-size: 15px;
+    font-size: 12px;
     ${multiline === true ? '' : css`
-      height: 41px;
+      height: 33px;
     `}
   }
   & .MuiInput-input, & .Mui-disabled {

@@ -7,7 +7,7 @@ export type BillingIsleSubTitleProps = {
 
 export const BillingIsleSubTitle: React.FC<BillingIsleSubTitleProps & WithClassName> = styled('span')`
   font-weight: 400;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1;
   letter-spacing: 0px;
   vertical-align: middle;
