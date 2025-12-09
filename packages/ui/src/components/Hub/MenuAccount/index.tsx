@@ -4,11 +4,8 @@ import { isNull } from '@arthurka/ts-utils';
 import { MenuOptions, MenuOptionsProps } from '../MenuOptions';
 import {
   Avatar,
-  Chip,
-  ChipText,
   Container,
   MainHeading,
-  SecondaryHeading,
 } from './styles';
 
 export type MenuAccountProps = {
@@ -36,22 +33,10 @@ export const MenuAccount = ({
       isNull(user) ? (
         <MainHeading>{guestProfileText}</MainHeading>
       ) : (
-        <Stack gap='16px'>
-          <Stack direction='row' alignItems='center' gap='16px'>
-            <Avatar src={isNull(user.avatar) ? '' : user.avatar} alt={user.name} />
-            <Chip
-              label={<ChipText>{planBadgeText}</ChipText>}
-              variant='outlined'
-              color='primary'
-            />
-          </Stack>
-
-          <Stack>
-            <MainHeading>{user.name}</MainHeading>
-            <SecondaryHeading>{user.email}</SecondaryHeading>
-          </Stack>
+        <Stack direction='row' alignItems='center' gap='16px'>
+          <Avatar src={isNull(user.avatar) ? '' : user.avatar} alt={user.name} />
+          <MainHeading>{user.name}</MainHeading>
         </Stack>
-
       )
     }
 

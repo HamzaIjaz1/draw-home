@@ -26,7 +26,7 @@ export const MenuOptions = ({
   options,
   closeMenu,
 }: MenuOptionsProps & WithClassName) => (
-  <Stack className={className} gap={7}>
+  <Stack className={className} gap={5}>
     {options.map(({ title, icon, href, onClick, state }) => {
       const key = `${icon}${href}${title}`;
 
