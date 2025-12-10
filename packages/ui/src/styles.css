@@ -37,3 +37,15 @@
   src: url('/fonts/inter/Inter-VariableFont_opsz,wght.ttf');
   font-weight: 100 900;
 }
+::-webkit-scrollbar-track {
+  background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #BEBEBE;
+  cursor: pointer;
+}
