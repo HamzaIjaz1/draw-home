@@ -74,10 +74,10 @@ export const AllHotkeysDemo = memo(() => {
   return (
     <AllHotkeysLegend.Root>
       <AllHotkeysLegend.Block {...globalKeys} />
-      <AllHotkeysLegend.Block {...quickAccessKeys} />
+        <AllHotkeysLegend.Block {...walkKeys} />
       <AllHotkeysLegend.Block {...cameraKeys} />
       <AllHotkeysLegend.Combine>
-        <AllHotkeysLegend.Block {...walkKeys} />
+        <AllHotkeysLegend.Block {...quickAccessKeys} />
         <AllHotkeysLegend.Block {...otherKeys} />
       </AllHotkeysLegend.Combine>
     </AllHotkeysLegend.Root>
