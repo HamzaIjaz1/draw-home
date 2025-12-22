@@ -54,7 +54,7 @@ export const getAbsoluteDividerCss = (styles?: ReturnType<typeof css>) => css`
 export const absoluteDividerCss = getAbsoluteDividerCss();
 
 export const scrollbarWidth = 17;
-export const menuContainerWidth = 390;
+export const menuContainerWidth = 320;
 
 export type CssVariable = `--${string}`;
 

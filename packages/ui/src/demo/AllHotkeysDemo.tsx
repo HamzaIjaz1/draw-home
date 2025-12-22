@@ -4,7 +4,11 @@ import { AllHotkeysLegend, MainButton } from '../components';
 import { negate } from '../utils/negate';
 import { CameraIcon, CircumscribedPencilIcon, HouseWithChimneyIcon, KeyboardAndMouseIcon, PersonWalkingIcon } from '../components/Icons';
 
-export const AllHotkeysDemo = memo(() => {
+type AllHotkeysDemoProps = {
+  onClose?: () => void;
+};
+
+export const AllHotkeysDemo = memo(({ onClose }: AllHotkeysDemoProps) => {
   const theme = useTheme();
 
   const globalKeys = {
@@ -72,7 +76,7 @@ export const AllHotkeysDemo = memo(() => {
   };
 
   return (
-    <AllHotkeysLegend.Root>
+    <AllHotkeysLegend.Root onClose={onClose}>
       <AllHotkeysLegend.Block {...globalKeys} />
         <AllHotkeysLegend.Block {...walkKeys} />
       <AllHotkeysLegend.Block {...cameraKeys} />
@@ -95,7 +99,7 @@ export const AllHotkeysMenuDemo = memo(() => {
         onClick={() => setOpen(negate)}
       />
 
-      {open === true && <AllHotkeysDemo />}
+      {open === true && <AllHotkeysDemo onClose={() => setOpen(false)} />}
     </>
   );
 });

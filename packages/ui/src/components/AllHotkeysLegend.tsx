@@ -1,9 +1,40 @@
 import { WithClassName } from '@draw-house/common/dist/utils';
 import { css, styled } from '@mui/material';
+import { useEffect, useRef } from 'react';
 import { Box } from './Box';
 
 const bottomPx = 150;
 const paddingPx = 16;
+
+const Wrapper = styled('div')`
+  position: fixed;
+  bottom: ${bottomPx}px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 9999999999;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 80svw;
+  max-height: min(80svh, calc(100svh - ${bottomPx}px - ${2 * paddingPx}px));
+
+  border-radius: 20px;
+  background: #0000000f;
+  backdrop-filter: blur(38px);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 90svw;
+    max-height: min(80svh, calc(100svh - ${bottomPx}px - ${2 * 12}px));
+    border-radius: 12px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 95svw;
+    max-height: min(80svh, calc(100svh - ${bottomPx}px - ${2 * 10}px));
+    border-radius: 10px;
+  }
+`;
 
 const Container = styled('div')`
   display: grid;
@@ -11,27 +42,7 @@ const Container = styled('div')`
   gap: 20px 40px;
   overflow-y: auto;
   overflow-x: hidden;
-  
-  /* Hide scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-
-  position: fixed;
-  bottom: ${bottomPx}px;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  z-index: 9999999999;
-
-  max-width: 80svw;
-  max-height: min(80svh, calc(100svh - ${bottomPx}px - ${2 * paddingPx}px));
-
   padding: ${paddingPx}px;
-  border-radius: 20px;
-  background: #0000000f;
-  backdrop-filter: blur(38px);
 
   @media (max-width: 1080px) {
     grid-template-columns: repeat(2, 1fr);
@@ -42,30 +53,57 @@ const Container = styled('div')`
     grid-template-columns: repeat(2, 1fr);
     gap: 16px 24px;
     padding: 12px;
-    max-width: 90svw;
-    max-height: min(80svh, calc(100svh - ${bottomPx}px - ${2 * 12}px));
-    border-radius: 12px;
   }
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 10px;
-    max-width: 95svw;
-    max-height: min(80svh, calc(100svh - ${bottomPx}px - ${2 * 10}px));
-    border-radius: 10px;
   }
 `;
 
 type RootProps = {
   children: React.ReactNode;
+  onClose?: () => void;
 };
 
-const Root = ({ className, children }: RootProps & WithClassName) => (
-  <Container className={className}>
-    {children}
-  </Container>
-);
+const Root = ({ className, children, onClose }: RootProps & WithClassName) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!onClose) return;
+
+    // Handle ESC key
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    // Handle click outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
+
+  return (
+    <Wrapper ref={wrapperRef} className={className}>
+      <Container>
+        {children}
+      </Container>
+    </Wrapper>
+  );
+};
 
 type BlockProps = {
   title: string;

@@ -8,11 +8,13 @@ export const Container = styled('div')`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
   gap: 10px;
   ${menuRowPadding()}
   padding-bottom: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
 `;
 
 
