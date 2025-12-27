@@ -1193,7 +1193,7 @@ const ColorOverlayMenuDemo = memo(() => {
             }
             chosenOption={chosenTexture}
             onClick={setChosenTexture}
-            wrap
+            // wrap
           />
         </MenuItem>
         <MenuItem paddingHorizontal paddingVertical='md'>

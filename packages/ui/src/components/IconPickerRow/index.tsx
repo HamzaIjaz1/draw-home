@@ -4,6 +4,7 @@ import { ClassNames } from '@emotion/react';
 import { useTheme } from '@mui/material';
 import { isUndefined, isUndefinedSimple, Union } from '@arthurka/ts-utils';
 import { Container, IconButton, Text, WithText } from './styles';
+import { HorizontalScrollWrapper } from '../HorizontalScrollWrapper';
 import {
   CeilingIcon,
   FlatRoofIcon,
@@ -135,38 +136,39 @@ export function IconPickerRow<T extends string | number>({
   onClick,
 }: IconPickerRowProps<T> & WithClassName) {
   return (
-    <Container
-      className={className}
-      onClick={e => {
-        if(e.target === e.currentTarget) {
-          e.stopPropagation();
-        }
-      }}
-    >
-      {
-        items.map(({ label, ...rest }) => {
-          const key = isUndefinedSimple(rest.id) ? rest.icon : rest.id;
+    <HorizontalScrollWrapper className={className}>
+      <Container
+        onClick={e => {
+          if(e.target === e.currentTarget) {
+            e.stopPropagation();
+          }
+        }}
+      >
+        {
+          items.map(({ label, ...rest }) => {
+            const key = isUndefinedSimple(rest.id) ? rest.icon : rest.id;
 
-          return (
-            isUndefined(label)
-              ? <ItemComp key={key} onClick={onClick} {...rest} />
-              : (
-                <WithText key={key}>
-                  <ItemComp onClick={onClick} {...rest} />
-                  <Text
-                    onClick={e => {
-                      if(e.target === e.currentTarget) {
-                        e.stopPropagation();
-                      }
-                    }}
-                  >
-                    {label}
-                  </Text>
-                </WithText>
-              )
-          );
-        })
-      }
-    </Container>
+            return (
+              isUndefined(label)
+                ? <ItemComp key={key} onClick={onClick} {...rest} />
+                : (
+                  <WithText key={key}>
+                    <ItemComp onClick={onClick} {...rest} />
+                    <Text
+                      onClick={e => {
+                        if(e.target === e.currentTarget) {
+                          e.stopPropagation();
+                        }
+                      }}
+                    >
+                      {label}
+                    </Text>
+                  </WithText>
+                )
+            );
+          })
+        }
+      </Container>
+    </HorizontalScrollWrapper>
   );
 }

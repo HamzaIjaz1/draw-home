@@ -9,12 +9,9 @@ export const Container = styled('div')`
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: nowrap;
-  width: 100%;
   gap: 10px;
   ${menuRowPadding()}
   padding-bottom: 8px;
-  overflow-x: auto;
-  overflow-y: hidden;
 `;
 
 

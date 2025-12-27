@@ -5,6 +5,7 @@ import {
   MaterialButton,
   Text,
 } from './styles';
+import { HorizontalScrollWrapper } from '../HorizontalScrollWrapper';
 
 type Option<T extends number> = {
   id: T;
@@ -32,8 +33,8 @@ export function MaterialCategoryPicker<T extends number>({
   highlightVariant = 'outline',
   size = 'md',
 }: MaterialCategoryPickerProps<T> & WithClassName) {
-  return (
-    <Container className={className} wrap={wrap}>
+  const content = (
+    <Container wrap={wrap}>
       {options.map(({ id, image, name }) => (
         <MaterialButton
           key={id}
@@ -52,5 +53,19 @@ export function MaterialCategoryPicker<T extends number>({
         </MaterialButton>
       ))}
     </Container>
+  );
+
+  if (wrap === true) {
+    return (
+      <div className={className}>
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <HorizontalScrollWrapper className={className}>
+      {content}
+    </HorizontalScrollWrapper>
   );
 }

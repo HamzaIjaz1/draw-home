@@ -24,8 +24,6 @@ export const Options = styled('div')`
   display: flex;
   flex-direction: row;
   gap: 10px;
-  overflow-x: auto;
-  overflow-y: hidden;
   flex-shrink: 0;
 `;
 
