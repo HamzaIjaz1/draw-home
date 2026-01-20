@@ -134,7 +134,7 @@ const List = styled('ul')`
 
 const ListItem = styled('li')`
   font-weight: 400;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.7;
   letter-spacing: 0px;
   white-space: nowrap;

@@ -53,10 +53,10 @@ export const MiscMenuContent = memo(() => {
   return (
     <>
       <MenuSection
-        title='This is a shared roof. To change Roof settings of one room, use space settings'
+        title='Shared roof'
+        tooltip='This is a shared roof. To change Roof settings of one room, use space settings'
         type='collapsible'
         titleVariant='pale'
-        titleSize='14px'
         icon='hint'
         divider='content'
       >

@@ -21,8 +21,8 @@ const getBorderRadius = (corners: FrameProps['corners']): string => {
 
 const Frame = styled(Paper, opts)<FrameProps>(({ corners }) => css`
   width: fit-content;
-  padding: 5px 0 10px 0;
-  box-shadow: 0px 0px 5px 0px #0000004d;
+  padding: 4px 0 8px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   border-radius: ${getBorderRadius(corners)};
   z-index: 3;
 `);

@@ -2,6 +2,7 @@ import Color from 'color';
 import { WithClassName } from '@draw-house/common/dist/utils';
 import styled from 'styled-components';
 import { Container, Image, MaterialButton, Text } from './styles';
+import { HorizontalScrollWrapper } from '../HorizontalScrollWrapper';
 
 type RecentOption<T extends number> = {
   id: T;
@@ -56,8 +57,8 @@ export function RecentTexturePicker<T extends number>({
   highlightVariant = 'outline',
   size = 'md',
 }: RecentTexturePickerProps<T> & WithClassName) {
-  return (
-    <Container className={className} wrap={wrap}>
+  const content = (
+    <Container wrap={wrap}>
       {options.map(({ id, image, name, wScale, lScale, rotateDeg, color }) => {
         const w = Number.isFinite(wScale) && wScale > 0 ? wScale : 1;
         const l = Number.isFinite(lScale) && lScale > 0 ? lScale : 1;
@@ -96,5 +97,19 @@ export function RecentTexturePicker<T extends number>({
         );
       })}
     </Container>
+  );
+
+  if (wrap === true) {
+    return (
+      <div className={className}>
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <HorizontalScrollWrapper className={className}>
+      {content}
+    </HorizontalScrollWrapper>
   );
 }

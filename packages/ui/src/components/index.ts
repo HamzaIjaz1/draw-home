@@ -28,6 +28,7 @@ export { FieldButton, type FieldButtonProps } from './FieldButton';
 export { FileUploadArea, type FileUploadAreaProps } from './FileUploadArea';
 export { FloatingMenu, type FloatingMenuProps } from './Menu/FloatingMenu';
 export { HexRgbColorInput, type HexRgbColorInputProps } from './HexRgbColorInput';
+export { HorizontalScrollWrapper } from './HorizontalScrollWrapper';
 export { HotkeyLegend, type HotkeyLegendProps } from './HotkeyLegend';
 export { IconButton, type IconButtonProps } from './IconButton';
 export { IconPickerRow, type IconPickerRowProps } from './IconPickerRow';

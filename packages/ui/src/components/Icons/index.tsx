@@ -2974,3 +2974,25 @@ export const CreditCardIcon = ({ className, color }: WithClassName & IconProps) 
     </svg>
   );
 };
+
+export const ChevronLeftIcon = ({ className, color }: WithClassName & IconProps) => {
+  const theme = useTheme();
+  const _color = color || theme.palette.secondary.main;
+
+  return (
+    <svg className={className} width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M15 18l-6-6 6-6' stroke={_color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+    </svg>
+  );
+};
+
+export const ChevronRightIcon = ({ className, color }: WithClassName & IconProps) => {
+  const theme = useTheme();
+  const _color = color || theme.palette.secondary.main;
+
+  return (
+    <svg className={className} width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M9 18l6-6-6-6' stroke={_color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+    </svg>
+  );
+};

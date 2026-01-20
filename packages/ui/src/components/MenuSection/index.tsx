@@ -1,6 +1,6 @@
 import { WithClassName } from '@draw-house/common/dist/utils';
 import { isUndefined, Union } from '@arthurka/ts-utils';
-import { useTheme } from '@mui/material';
+import { useTheme, Tooltip as MuiTooltip } from '@mui/material';
 import { ClassNames } from '@emotion/react';
 import { setCssVarInline } from '../../utils/styles';
 import {
@@ -77,6 +77,7 @@ type IconOrImage = ImageOption | IconOption;
 export type MenuSectionProps = Union<(
   & {
     title: string;
+    tooltip?: string;
     titleVariant?: 'primary-600' | 'primary-500' | 'primary-400' | 'pale';
     titleSize?: string;
     divider?: 'summary' | 'content';
@@ -106,6 +107,7 @@ export type MenuSectionProps = Union<(
 export const MenuSection = ({
   className,
   title,
+  tooltip,
   children,
   type,
   expanded,
@@ -194,12 +196,44 @@ export const MenuSection = ({
               />
             )
         )}
-        <Text
-          $titleVariant={titleVariant}
-          $titleSize={titleSize}
-        >
-          {title}
-        </Text>
+        {isUndefined(tooltip) ? (
+          <Text
+            $titleVariant={titleVariant}
+            $titleSize={titleSize}
+          >
+            {title}
+          </Text>
+        ) : (
+          <MuiTooltip
+            title={tooltip}
+            placement="bottom-start"
+            arrow
+            slotProps={{
+              tooltip: {
+                sx: {
+                  bgcolor: 'rgba(0, 0, 0, 0.85)',
+                  fontSize: '12px',
+                  padding: '8px 12px',
+                  maxWidth: 220,
+                  lineHeight: 1.4,
+                },
+              },
+              arrow: {
+                sx: {
+                  color: 'rgba(0, 0, 0, 0.85)',
+                },
+              },
+            }}
+          >
+            <Text
+              $titleVariant={titleVariant}
+              $titleSize={titleSize}
+              style={{ cursor: 'help' }}
+            >
+              {title}
+            </Text>
+          </MuiTooltip>
+        )}
       </AccordionSummary>
 
       {!isUndefined(children) && (

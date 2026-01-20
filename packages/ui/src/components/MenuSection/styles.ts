@@ -46,6 +46,7 @@ export const AccordionSummary = styled(MuiAccordionSummary, $props())<$Props<{
   border-radius: 4px;
   pointer-events: ${typeToPointerEvents[$type]};
   ${menuRowHorizontalPadding()}
+  min-height: 36px;
 
   ${$type === 'buttonlike' && css`
     :hover {
@@ -59,7 +60,7 @@ export const AccordionSummary = styled(MuiAccordionSummary, $props())<$Props<{
 
   .${accordionSummaryClasses.content} {
     align-items: center;
-    gap: ${$withIconButton === true ? '4px' : '8px'};
+    gap: ${$withIconButton === true ? '4px' : '6px'};
     margin: 0;
   }
 `);
@@ -74,10 +75,10 @@ export const Text = styled(Typography, $props())<$Props<{
 }>>(({
   theme,
   $titleVariant,
-  $titleSize = '17px',
+  $titleSize = '14px',
 }) => css`
   font-size: ${$titleSize};
-  line-height: 1;
+  line-height: 1.2;
   white-space: normal;
 
   ${lookup($titleVariant, {
@@ -105,8 +106,8 @@ export const Image = styled('img')`
 `;
 
 export const iconCss = css`
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   flex: 0 0 auto;
 `;
 

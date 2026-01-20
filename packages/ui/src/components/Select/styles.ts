@@ -6,24 +6,29 @@ const gray = '#f3f3f3';
 export const Container = styled('div')`
   position: relative;
   background-color: ${gray};
-  border-radius: 8px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
 `;
 
 export const DropdownSelect = styled('select')(({ theme }) => css`
-  width: 185px;
-  height: 32px;
+  width: 120px;
+  height: 28px;
 
-  padding: 6px 28px 6px 6px;
+  padding: 4px 24px 4px 6px;
 
   appearance: none;
   user-select: none;
   cursor: pointer;
   border: 0;
   outline: 0;
-  border-radius: 8px;
+  border-radius: 6px;
 
   font-weight: 400;
-  font-size: 17px;
+  font-size: 13px;
   line-height: 100%;
   letter-spacing: 0px;
   text-align: right;

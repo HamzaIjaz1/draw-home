@@ -25,7 +25,7 @@ export const Container = styled('div', ContainerOptions)<ContainerProps>(({ wrap
   ${wrap === false && css`
     display: flex;
     gap: 8px;
-    overflow-x: auto;
+    flex-wrap: nowrap;
   `}
 `);
 

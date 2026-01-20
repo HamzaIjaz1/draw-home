@@ -12,7 +12,7 @@ export const Header = styled('div', $props())<$Props<{
   $noHeight: boolean;
 }>>(({ $noHeight }) => css`
   ${$noHeight === false && css`
-    height: 40px;
+    height: 36px;
   `}
 
   width: 100%;
@@ -35,9 +35,9 @@ export const CloseButton = styled(IconButton)`
 `;
 
 export const Text = styled(Typography)`
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 22px;
+  line-height: 18px;
   text-align: center;
 
   width: 75%;
