@@ -3,16 +3,16 @@ import { css, styled } from '@mui/material';
 import { textOverflowEllipsis } from '../../utils/styles';
 
 const BaseText = styled(Typography)(({ theme }) => css`
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 16px;
   color: ${theme.palette.text.secondary};
 `);
 
 export const Title = BaseText;
 
 export const Value = styled(BaseText)`
-  width: 150px;
+  width: 100px;
   text-align: right;
   ${textOverflowEllipsis}
 `;

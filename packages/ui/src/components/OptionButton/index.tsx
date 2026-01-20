@@ -10,9 +10,14 @@ const Button = styled(BaseButton, $props())<$Props<{
   display: flex;
   flex-direction: column;
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: #f4f4f5;
+  }
 
   ${lookup($state, {
     default: css`

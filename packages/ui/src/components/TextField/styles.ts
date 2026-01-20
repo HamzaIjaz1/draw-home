@@ -16,18 +16,18 @@ const FormControlOptions = createStyledOptions<FormControlProps>({
 export const FormControl = styled(MuiFormControl, FormControlOptions)<FormControlProps>(({
   labeled,
 }) => css`
-  width: ${labeled === true ? '100%' : 'fit-content'};
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   ${menuRowVerticalPadding()}
 `);
 
 const textStyles = css`
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 18px;
 `;
 
 type InputProps = {
@@ -40,11 +40,11 @@ const InputOptions = createStyledOptions<InputProps>({
 });
 
 const inputWidthCss: Record<InputProps['_size'], number> = {
-  xxs: 56,
-  xs: 60,
-  sm: 96,
-  md: 164,
-  lg: 232,
+  xxs: 52,
+  xs: 56,
+  sm: 80,
+  md: 120,
+  lg: 160,
 };
 
 const getInputBackgroundColor = (theme: Theme, variant: InputProps['_variant']) => ({
@@ -55,16 +55,27 @@ const getInputBackgroundColor = (theme: Theme, variant: InputProps['_variant']) 
 export const StyledInput = styled(FilledInput, InputOptions)<InputProps>(({ theme, _size, _variant }) => css`
   min-width: ${inputWidthCss[_size]}px;
   max-width: ${inputWidthCss[_size]}px;
-  height: 32px;
-  border-radius: 8px;
+  height: 28px;
+  border-radius: 6px;
   background-color: ${getInputBackgroundColor(theme, _variant)};
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+
+  &.${filledInputClasses.focused} {
+    border-color: ${theme.palette.primary.main};
+    background-color: ${theme.palette.background.paper};
+  }
 
   .MuiInputAdornment-root {
     pointer-events: none;
   }
 
   .${filledInputClasses.input} {
-    padding: 6px;
+    padding: 4px 6px;
     ${textStyles}
     text-align: right;
   }
@@ -103,10 +114,11 @@ export const InputAdornment = styled(
 export const Label = styled('label')(({ theme }) => css`
   display: inline-flex;
   align-items: center;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 16px;
   color: ${theme.palette.text.secondary};
   cursor: pointer;
   overflow-wrap: anywhere;
+  flex-shrink: 0;
 `);

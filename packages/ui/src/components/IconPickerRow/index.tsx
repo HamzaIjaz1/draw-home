@@ -46,8 +46,8 @@ type IconProps = {
 };
 
 const iconSizes: Record<IconProps['size'], number> = {
-  md: 36,
-  lg: 56,
+  md: 28,
+  lg: 40,
 };
 
 const Icon = memo(({ icon, color, size }: IconProps) => {

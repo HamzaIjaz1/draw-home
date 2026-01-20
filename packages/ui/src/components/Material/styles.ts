@@ -10,7 +10,7 @@ export const Container = styled('div')`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 44px;
+  height: 36px;
   ${menuRowPadding()}
 `;
 
@@ -28,10 +28,10 @@ export const Button = styled(BaseButton)`
 `;
 
 export const Image = styled('img')(({ theme }) => css`
-  min-width: 80px;
-  max-width: 80px;
-  height: 28px;
-  border-radius: 6px;
+  min-width: 64px;
+  max-width: 64px;
+  height: 24px;
+  border-radius: 4px;
   object-fit: cover;
   border: 1px solid ${theme.palette.text.disabled};
 `);
@@ -43,8 +43,8 @@ const TextOptions: Parameters<typeof styled>[1] = {
   shouldForwardProp: e => !['disabled'].includes(e),
 };
 export const Text = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 16px;
   color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
 `);

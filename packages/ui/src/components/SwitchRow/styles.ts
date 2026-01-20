@@ -9,8 +9,8 @@ const TitleOptions: Parameters<typeof styled>[1] = {
   shouldForwardProp: e => !['disabled'].includes(e),
 };
 export const Title = styled(Typography, TitleOptions)<TitleProps>(({ theme, disabled }) => css`
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 16px;
   color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
 `);

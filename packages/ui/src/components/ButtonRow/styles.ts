@@ -19,9 +19,9 @@ const TextOptions: Parameters<typeof styled>[1] = {
   shouldForwardProp: e => !['disabled'].includes(e),
 };
 export const Label = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 16px;
   text-align: left;
   color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
   word-break: break-word;

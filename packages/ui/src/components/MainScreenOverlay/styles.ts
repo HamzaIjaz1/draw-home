@@ -181,6 +181,7 @@ export const FloatingMenuContainer = styled('div')`
   top: calc(-1 * (${getCssVar(vars.topRightRowGap)} + ${IconButtonSizeMdDesktop}px));
 
   .${floatingMenuClassName} {
-    height: calc(100vh - (2 * ${getCssVar(vars.marginY)}));
+    height: calc(100vh - (2 * ${getCssVar(vars.marginY)}) - 12px);
+    margin-top: 6px;
   }
 `;

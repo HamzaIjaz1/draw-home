@@ -8,10 +8,10 @@ export const Container = styled('div')`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: nowrap;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
   ${menuRowPadding()}
-  padding-bottom: 8px;
+  padding-bottom: 6px;
 `;
 
 
@@ -23,13 +23,18 @@ const ButtonOptions = createStyledOptions<ButtonProps>({
 });
 
 export const IconButton = styled(BaseButton, ButtonOptions)<ButtonProps>(({ theme, state }) => css`
-  min-width: 48px;
-  min-height: 48px;
-  border-radius: 8px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 6px;
   background: none;
   box-shadow: none;
-  border: 1px solid ${theme.palette.background.paper};
+  border: 1px solid transparent;
   padding: 0;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background-color: #f4f4f5;
+  }
 
   ${state === 'active' && css`
     border: 1px solid #d7d7d7;

@@ -4,7 +4,7 @@ import { styled } from '@mui/material';
 const Title = styled('span')`
   font-family: Inter;
   font-weight: 400;
-  font-size: 8px;
+  font-size: 7px;
   line-height: 1;
   letter-spacing: 0px;
   text-align: center;
