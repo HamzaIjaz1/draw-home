@@ -13,9 +13,11 @@ export const Container = styled(BaseRow)`
 `;
 
 export const Label = styled(Typography)(({ theme }) => css`
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: ${theme.palette.text.secondary};
   overflow-wrap: break-word;
 `);
@@ -60,7 +62,7 @@ export const TextButton = styled(BaseButton, ButtonOptions)<ButtonProps>(({ sele
 `);
 
 export const Text = styled(Typography)(({ theme }) => css`
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   line-height: 16px;
   color: ${theme.palette.text.primary};

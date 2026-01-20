@@ -22,12 +22,19 @@ const TextOptions: Parameters<typeof styled>[1] = {
 };
 const BaseText = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 16px;
-  color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
+  color: ${disabled === true ? menuRowDisabled : theme.palette.text.primary};
 `);
 
-export const Label = BaseText;
+export const Label = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
+`);
 
 export const Value = styled(BaseText)`
   max-width: 160px;

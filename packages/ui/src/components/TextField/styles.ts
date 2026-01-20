@@ -25,9 +25,9 @@ export const FormControl = styled(MuiFormControl, FormControlOptions)<FormContro
 `);
 
 const textStyles = css`
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 16px;
 `;
 
 type InputProps = {
@@ -114,9 +114,11 @@ export const InputAdornment = styled(
 export const Label = styled('label')(({ theme }) => css`
   display: inline-flex;
   align-items: center;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: ${theme.palette.text.secondary};
   cursor: pointer;
   overflow-wrap: anywhere;

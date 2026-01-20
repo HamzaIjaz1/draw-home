@@ -8,15 +8,16 @@ export const cssVars = {
   checkboxSize: '--checkbox-svg-size',
 } satisfies Record<string, CssVariable>;
 
-export const Label = styled('label')`
+export const Label = styled('label')(({ theme }) => css`
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 16px;
+  color: ${theme.palette.text.secondary};
   cursor: pointer;
   user-select: none;
-`;
+`);
 
 export const StyledCheckbox = styled(MuiCheckbox)(({ theme }) => css`
   color: ${getCssVar(cssVars.iconColor, theme.palette.primary.main)};

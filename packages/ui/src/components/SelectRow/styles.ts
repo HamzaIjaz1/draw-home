@@ -13,9 +13,11 @@ export const Container = styled('div')`
 
 export const InputLabel = styled(MuiInputLabel)(({ theme }) => css`
   flex: 1;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: ${theme.palette.text.secondary};
   cursor: pointer;
 `);

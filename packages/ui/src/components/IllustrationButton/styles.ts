@@ -21,9 +21,11 @@ export const ArrowContainer = styled('div')`
 `;
 
 export const Text = styled(Typography)(({ theme }) => css`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: ${theme.palette.text.secondary};
   overflow-wrap: anywhere;
 `);

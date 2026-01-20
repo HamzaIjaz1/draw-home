@@ -75,27 +75,26 @@ export const Text = styled(Typography, $props())<$Props<{
 }>>(({
   theme,
   $titleVariant,
-  $titleSize = '14px',
+  $titleSize = '13px',
 }) => css`
   font-size: ${$titleSize};
+  font-weight: 600;
   line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   white-space: normal;
 
   ${lookup($titleVariant, {
     'primary-600': css`
-      font-weight: 600;
       color: ${theme.palette.text.primary};
     `,
     'primary-500': css`
-      font-weight: 500;
       color: ${theme.palette.text.primary};
     `,
     'primary-400': css`
-      font-weight: 400;
       color: ${theme.palette.text.primary};
     `,
     pale: css`
-      font-weight: 400;
       color: ${theme.palette.text.secondary};
     `,
   })}
