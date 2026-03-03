@@ -123,7 +123,7 @@ export const PlusIcon = styled(BasePlusIcon)`
 `;
 
 export const Text = styled(Typography)`
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 20px;
 `;

@@ -16,18 +16,18 @@ const FormControlOptions = createStyledOptions<FormControlProps>({
 export const FormControl = styled(MuiFormControl, FormControlOptions)<FormControlProps>(({
   labeled,
 }) => css`
-  width: 100%;
+  width: ${labeled === true ? '100%' : 'fit-content'};
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   ${menuRowVerticalPadding()}
 `);
 
 const textStyles = css`
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 20px;
 `;
 
 type InputProps = {
@@ -40,11 +40,11 @@ const InputOptions = createStyledOptions<InputProps>({
 });
 
 const inputWidthCss: Record<InputProps['_size'], number> = {
-  xxs: 52,
-  xs: 56,
-  sm: 80,
-  md: 120,
-  lg: 160,
+  xxs: 60,
+  xs: 64,
+  sm: 92,
+  md: 140,
+  lg: 190,
 };
 
 const getInputBackgroundColor = (theme: Theme, variant: InputProps['_variant']) => ({
@@ -55,7 +55,7 @@ const getInputBackgroundColor = (theme: Theme, variant: InputProps['_variant']) 
 export const StyledInput = styled(FilledInput, InputOptions)<InputProps>(({ theme, _size, _variant }) => css`
   min-width: ${inputWidthCss[_size]}px;
   max-width: ${inputWidthCss[_size]}px;
-  height: 28px;
+  height: 32px;
   border-radius: 6px;
   background-color: ${getInputBackgroundColor(theme, _variant)};
   border: 1px solid transparent;
@@ -114,11 +114,9 @@ export const InputAdornment = styled(
 export const Label = styled('label')(({ theme }) => css`
   display: inline-flex;
   align-items: center;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${theme.palette.text.secondary};
   cursor: pointer;
   overflow-wrap: anywhere;

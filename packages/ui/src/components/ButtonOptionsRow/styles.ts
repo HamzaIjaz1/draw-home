@@ -7,19 +7,18 @@ import { BaseRow } from '../BaseRow';
 import { createStyledOptions } from '../../utils/createStyledOptions';
 
 export const Container = styled(BaseRow)`
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+  gap: 8px;
 `;
 
 export const Label = styled(Typography)(({ theme }) => css`
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${theme.palette.text.secondary};
+
+  max-width: 45%;
   overflow-wrap: break-word;
+  flex-shrink: 0;
 `);
 
 export const Options = styled('div')`
@@ -62,8 +61,8 @@ export const TextButton = styled(BaseButton, ButtonOptions)<ButtonProps>(({ sele
 `);
 
 export const Text = styled(Typography)(({ theme }) => css`
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 16px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${theme.palette.text.primary};
 `);

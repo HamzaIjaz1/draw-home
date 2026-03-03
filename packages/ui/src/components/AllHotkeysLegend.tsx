@@ -134,19 +134,19 @@ const List = styled('ul')`
 
 const ListItem = styled('li')`
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 20px;
   letter-spacing: 0px;
   white-space: nowrap;
 
   @media (max-width: 768px) {
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   @media (max-width: 480px) {
     font-size: 13px;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 `;
 
@@ -175,21 +175,21 @@ const TitleWithIcon = styled('span')`
 `;
 
 const Title = styled('span')(({ theme }) => css`
-  font-weight: 500;
+  font-weight: 400;
   font-size: 17px;
-  line-height: 1.5;
+  line-height: 20px;
   letter-spacing: 0px;
   white-space: nowrap;
   color: ${theme.palette.text.secondary};
 
   @media (max-width: 768px) {
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 15px;
+    line-height: 1.5;
   }
 
   @media (max-width: 480px) {
-    font-size: 12px;
-    line-height: 1.3;
+    font-size: 13px;
+    line-height: 1.4;
   }
 `);
 

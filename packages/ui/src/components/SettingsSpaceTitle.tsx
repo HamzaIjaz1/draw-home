@@ -2,9 +2,9 @@ import { WithClassName } from '@draw-house/common/dist/utils';
 import { css, styled } from '@mui/material';
 
 const Text = styled('span')(({ theme }) => css`
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   letter-spacing: 0px;
   color: ${theme.palette.text.secondary};
   overflow-wrap: anywhere;

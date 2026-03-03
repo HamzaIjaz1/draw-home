@@ -4,20 +4,17 @@ import { menuRowPadding } from '../../utils/styles';
 
 export const Container = styled('div')`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   ${menuRowPadding()}
 `;
 
 export const InputLabel = styled(MuiInputLabel)(({ theme }) => css`
   flex: 1;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${theme.palette.text.secondary};
   cursor: pointer;
 `);

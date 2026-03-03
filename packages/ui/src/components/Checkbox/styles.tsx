@@ -11,9 +11,9 @@ export const cssVars = {
 export const Label = styled('label')(({ theme }) => css`
   display: inline-flex;
   align-items: center;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 20px;
   color: ${theme.palette.text.secondary};
   cursor: pointer;
   user-select: none;

@@ -35,9 +35,9 @@ export const CloseButton = styled(IconButton)`
 `;
 
 export const Text = styled(Typography)`
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   text-align: center;
 
   width: 75%;

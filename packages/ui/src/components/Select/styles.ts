@@ -15,10 +15,10 @@ export const Container = styled('div')`
 `;
 
 export const DropdownSelect = styled('select')(({ theme }) => css`
-  width: 120px;
-  height: 28px;
+  width: 140px;
+  height: 32px;
 
-  padding: 4px 24px 4px 6px;
+  padding: 4px 24px 4px 10px;
 
   appearance: none;
   user-select: none;
@@ -28,8 +28,8 @@ export const DropdownSelect = styled('select')(({ theme }) => css`
   border-radius: 6px;
 
   font-weight: 400;
-  font-size: 13px;
-  line-height: 100%;
+  font-size: 17px;
+  line-height: 20px;
   letter-spacing: 0px;
   text-align: right;
   color: ${theme.palette.text.primary};

@@ -28,9 +28,9 @@ export const Button = styled(BaseButton)`
 `;
 
 export const Image = styled('img')(({ theme }) => css`
-  min-width: 64px;
-  max-width: 64px;
-  height: 24px;
+  min-width: 76px;
+  max-width: 76px;
+  height: 28px;
   border-radius: 4px;
   object-fit: cover;
   border: 1px solid ${theme.palette.text.disabled};
@@ -43,10 +43,8 @@ const TextOptions: Parameters<typeof styled>[1] = {
   shouldForwardProp: e => !['disabled'].includes(e),
 };
 export const Text = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
 `);

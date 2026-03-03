@@ -21,23 +21,21 @@ const TextOptions: Parameters<typeof styled>[1] = {
   shouldForwardProp: e => !['disabled'].includes(e),
 };
 const BaseText = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 16px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${disabled === true ? menuRowDisabled : theme.palette.text.primary};
 `);
 
 export const Label = styled(Typography, TextOptions)<TextProps>(({ theme, disabled }) => css`
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
   color: ${disabled === true ? menuRowDisabled : theme.palette.text.secondary};
 `);
 
 export const Value = styled(BaseText)`
-  max-width: 160px;
+  max-width: 190px;
   text-align: right;
   ${textOverflowEllipsis}
 `;

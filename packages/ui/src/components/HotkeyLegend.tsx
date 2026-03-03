@@ -36,9 +36,9 @@ const BackFrame = styled('div')`
 `;
 
 const Label = styled('span')(({ theme }) => css`
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 20px;
   letter-spacing: 0px;
   color: ${theme.palette.primary.main};
   user-select: none;

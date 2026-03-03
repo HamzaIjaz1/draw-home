@@ -30,8 +30,8 @@ const verticalPaddings: Record<NonNullable<ItemProps['$paddingVertical']>, `${nu
 
 const minHeights: Record<ItemProps['$minHeight'], string> = {
   unset: 'unset',
-  'full-row': '40px',
-  'half-row': '20px',
+  'full-row': '48px',
+  'half-row': '24px',
 };
 
 const paddingHorizontalCss = {

@@ -11,8 +11,8 @@ export const Container = styled('div')`
 
 export const Text = styled(Typography)(({ theme }) => css`
   font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 17px;
+  line-height: 20px;
   color: ${theme.palette.text.disabled};
   overflow-wrap: anywhere;
 

@@ -21,11 +21,11 @@ export const VisuallyHiddenInput = styled('input')`
 `;
 
 export const menuRowVerticalPadding = () => css`
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 `;
 
-export const menuHorizontalGutterWidth = 16;
+export const menuHorizontalGutterWidth = 12;
 
 export const menuRowHorizontalPadding = () => css`
   padding-left: ${menuHorizontalGutterWidth}px;
@@ -54,7 +54,7 @@ export const getAbsoluteDividerCss = (styles?: ReturnType<typeof css>) => css`
 export const absoluteDividerCss = getAbsoluteDividerCss();
 
 export const scrollbarWidth = 17;
-export const menuContainerWidth = 260;
+export const menuContainerWidth = 309;
 
 export type CssVariable = `--${string}`;
 

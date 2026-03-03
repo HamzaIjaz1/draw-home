@@ -46,7 +46,6 @@ export const AccordionSummary = styled(MuiAccordionSummary, $props())<$Props<{
   border-radius: 4px;
   pointer-events: ${typeToPointerEvents[$type]};
   ${menuRowHorizontalPadding()}
-  min-height: 36px;
 
   ${$type === 'buttonlike' && css`
     :hover {
@@ -75,13 +74,11 @@ export const Text = styled(Typography, $props())<$Props<{
 }>>(({
   theme,
   $titleVariant,
-  $titleSize = '13px',
+  $titleSize = '17px',
 }) => css`
   font-size: ${$titleSize};
-  font-weight: 600;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  line-height: 20px;
   white-space: normal;
 
   ${lookup($titleVariant, {

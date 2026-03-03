@@ -46,8 +46,8 @@ type IconProps = {
 };
 
 const iconSizes: Record<IconProps['size'], number> = {
-  md: 28,
-  lg: 40,
+  md: 36,
+  lg: 56,
 };
 
 const Icon = memo(({ icon, color, size }: IconProps) => {
@@ -147,7 +147,6 @@ export function IconPickerRow<T extends string | number>({
         {
           items.map(({ label, ...rest }) => {
             const key = isUndefinedSimple(rest.id) ? rest.icon : rest.id;
-
             return (
               isUndefined(label)
                 ? <ItemComp key={key} onClick={onClick} {...rest} />
