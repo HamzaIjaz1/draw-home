@@ -58,7 +58,7 @@ const themeOptions = {
   palette,
   spacing: 4,
   typography: {
-    fontFamily: 'Sofia Pro, Arial',
+    fontFamily: 'Roboto, Arial',
   },
   components: {
     MuiUseMediaQuery: {

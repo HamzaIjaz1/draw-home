@@ -1,22 +1,22 @@
 @font-face {
   /* designs equivalent of "Sofia Pro" is "Roboto" */
-  font-family: 'Sofia Pro';
-  src: url('/fonts/sofia-pro/light.otf');
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/light.ttf');
   font-weight: 300;
 }
 @font-face {
-  font-family: 'Sofia Pro';
-  src: url('/fonts/sofia-pro/regular.otf');
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/regular.ttf');
   font-weight: 400;
 }
 @font-face {
-  font-family: 'Sofia Pro';
-  src: url('/fonts/sofia-pro/medium.otf');
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/medium.ttf');
   font-weight: 500;
 }
 @font-face {
-  font-family: 'Sofia Pro';
-  src: url('/fonts/sofia-pro/semi-bold.otf');
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/semi-bold.ttf');
   font-weight: 600;
 }
 
