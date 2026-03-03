@@ -382,6 +382,41 @@ const MiscMenuDemo = memo(() => {
   );
 });
 
+const RightAlignedWrapper = styled('div')`
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 9999999999;
+  height: calc(100vh - 24px);
+`;
+
+const MiscDesktopMenuDemo = memo(() => {
+  const title = 'Misc desktop';
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <MainButton
+        icon='plus'
+        onClick={() => setOpen(negate)}
+        text={title}
+        variant={open === true ? 'text' : 'contained'}
+      />
+
+      {open === true && (
+        <RightAlignedWrapper>
+          <FloatingMenu
+            title='Settings'
+            onClose={() => setOpen(false)}
+          >
+            <MiscMenuContent />
+          </FloatingMenu>
+        </RightAlignedWrapper>
+      )}
+    </>
+  );
+});
+
 const InitMenuDemo = memo(() => {
   const title = 'Init';
   const [open, setOpen] = useState(false);
@@ -1988,6 +2023,19 @@ const TemplateScreenDemo = memo(({ closeTemplateScreen }: { closeTemplateScreen:
   </Base>
 ));
 
+const MiscDesktopPage = memo(({ close }: { close: () => void }) => (
+  <Base>
+    <RightAlignedWrapper>
+      <FloatingMenu
+        title='Settings'
+        onClose={close}
+      >
+        <MiscMenuContent />
+      </FloatingMenu>
+    </RightAlignedWrapper>
+  </Base>
+));
+
 const PagesDemo = memo(({ closePages }: { closePages: () => void }) => {
   const [pageContent, setPageContent] = useState<PageContent>('Projects');
   const [editProjectNameId, setEditProjectNameId] = useState<string>();
@@ -2556,6 +2604,7 @@ const SlideUpMenuSection = memo(() => (
     <HorizontalSection>
       <MaterialsMenuDemo />
       <MiscMenuDemo />
+      <MiscDesktopMenuDemo />
       <InitMenuDemo />
       <StairsMenuDemo />
       <CatalogMenuDemo />
@@ -2722,6 +2771,7 @@ export const App: React.FC = () => {
   const [showMainOverlay, setShowMainOverlay] = useState(false);
   const closeMainOverlay = useCallback(() => setShowMainOverlay(false), []);
   const [showPages, setShowPages] = useState(false);
+  const [showMiscDesktopPage, setShowMiscDesktopPage] = useState(false);
   const [showIconsPage, setShowIconsPage] = useState(false);
   const closePages = useCallback(() => setShowPages(false), []);
   const [showTemplateScreen, setShowTemplateScreen] = useState(false);
@@ -2737,6 +2787,10 @@ export const App: React.FC = () => {
 
   if(showMainOverlay === true) {
     return <MainOverlayDemo closeMainOverlay={closeMainOverlay} />;
+  }
+
+  if(showMiscDesktopPage === true) {
+    return <MiscDesktopPage close={() => setShowMiscDesktopPage(false)} />;
   }
 
   if(showTemplateScreen === true) {
@@ -2771,6 +2825,11 @@ export const App: React.FC = () => {
             icon='plus'
             onClick={() => setShowIconsPage(negate)}
             text='all icons'
+          />
+          <MainButton
+            icon='plus'
+            onClick={() => setShowMiscDesktopPage(negate)}
+            text='misc desktop'
           />
         </HorizontalSection>
 
