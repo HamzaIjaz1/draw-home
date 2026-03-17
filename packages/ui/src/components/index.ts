@@ -1,4 +1,5 @@
 export { AllHotkeysLegend, type AllHotkeysLegendProps } from './AllHotkeysLegend';
+export { AppearanceScreen, type AppearanceScreenProps } from './AppearanceScreen';
 export { AnchoredMenu, type AnchoredMenuProps } from './AnchoredMenu';
 export { AnchorTo, type AnchorToProps } from './AnchorTo';
 export { AnnotatedTabs, type AnnotatedTabsProps } from './Tabs/variants';

@@ -12,6 +12,7 @@ import {
   AnchorTo,
   AnnotatedTabs,
   AppearanceContainer,
+  AppearanceScreen,
   AppearanceIconButton,
   AppearanceInputsContainer,
   AppearanceSectionTitle,
@@ -2421,6 +2422,15 @@ const IconsPage = memo(({ close }: { close: () => void }) => (
   </Base>
 ));
 
+const AppearanceScreenDemo = memo(({ close }: { close: () => void }) => (
+  <Base>
+    <AppearanceScreen />
+    <div style={{ position: 'fixed', top: 16, left: 16, zIndex: 9999 }}>
+      <SecondaryButton text='Back to home' onClick={close} />
+    </div>
+  </Base>
+));
+
 const DialogDemo = memo(() => {
   const [open, setOpen] = useState(false);
 
@@ -2776,6 +2786,8 @@ export const App: React.FC = () => {
   const closePages = useCallback(() => setShowPages(false), []);
   const [showTemplateScreen, setShowTemplateScreen] = useState(false);
   const closeTemplateScreen = useCallback(() => setShowTemplateScreen(false), []);
+  const [showAppearanceScreen, setShowAppearanceScreen] = useState(false);
+  const closeAppearanceScreen = useCallback(() => setShowAppearanceScreen(false), []);
 
   const { isDnDSupported } = useCheckDnDSupport();
 
@@ -2799,6 +2811,10 @@ export const App: React.FC = () => {
 
   if(showIconsPage === true) {
     return <IconsPage close={() => setShowIconsPage(false)} />;
+  }
+
+  if(showAppearanceScreen === true) {
+    return <AppearanceScreenDemo close={closeAppearanceScreen} />;
   }
 
   return (
@@ -2830,6 +2846,11 @@ export const App: React.FC = () => {
             icon='plus'
             onClick={() => setShowMiscDesktopPage(negate)}
             text='misc desktop'
+          />
+          <MainButton
+            icon='plus'
+            onClick={() => setShowAppearanceScreen(negate)}
+            text='appearance screen'
           />
         </HorizontalSection>
 

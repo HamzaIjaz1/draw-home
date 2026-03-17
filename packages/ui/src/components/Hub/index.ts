@@ -1,6 +1,7 @@
 export { AccountPageContent, type AccountPageContentProps } from './AccountPageContent';
 export { ButtonLinkLike, type ButtonLinkLikeProps } from './ButtonLinkLike';
 export { ComingSoonPageContent } from './ComingSoonPageContent';
+export { DrawHouseFigmaScreen, type DrawHouseFigmaScreenProps } from './DrawHouseFigmaScreen';
 export { Dialog, type DialogProps } from './Dialog';
 export { DialogActions, type DialogActionsProps } from './DialogActions';
 export { DialogDescription, type DialogDescriptionProps } from './DialogDescription';
