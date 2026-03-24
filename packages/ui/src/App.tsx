@@ -135,6 +135,7 @@ import { MiscMenuContent } from './demo/MiscMenuContent';
 import { IconsDemo } from './demo/IconsDemo';
 
 import './styles.css';
+import { MenuAppearanceContent } from './demo/MenuAppearanceContent';
 
 
 const Container = styled('div')`
@@ -147,6 +148,14 @@ const HorizontalSection = styled('section')`
   align-items: center;
   gap: 8px;
   padding: 8px;
+`;
+
+const RightAlignedWrapper = styled('div')`
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 9999999999;
+  height: calc(100vh - 24px);
 `;
 
 const Base = ({ children }: { children: React.ReactNode }) => (
@@ -197,6 +206,307 @@ const PopUpToolbarGeneric = memo(() => {
         </>
       }
     />
+  );
+});
+
+const MainOverlayWithMiscDesktopSidebarPage = memo(({
+  close,
+}: {
+  close: () => void;
+}) => {
+  const [isActive, setIsActive] = useState(false);
+  type FloatingMenuContent = 'settings' | 'none' | 'visibility' | '3d-catalog';
+  const [showFloatingMenu, setShowFloatingMenu] = useState<FloatingMenuContent>('none');
+  const [tabIndex, setTabIndex] = useState(0);
+  const [showDrawToolbar, setShowDrawToolbar] = useState(true);
+  const [showBottom, setShowBottom] = useState<null | 'priority' | 'infopanel'>(null);
+  const [showFeatureMap, setShowFeatureMap] = useState(false);
+  const [isTouchScreen, setIsTouchScreen] = useState(false);
+  const [showImageAssetsMenu, setShowImageAssetsMenu] = useState(false);
+  const [showMiscSidebar, setShowMiscSidebar] = useState(true);
+
+  const stateProps = {
+    state: isActive ? 'active' : 'default',
+    onClick: () => setIsActive(!isActive),
+  } as const;
+
+  const floatingMenuContent = {
+    none: null,
+    settings: {
+      title: 'Settings',
+      comp: <MiscMenuContent />,
+    },
+    visibility: {
+      title: 'Hide/Show',
+      comp: <VisibilityMenuContent items={visibilityMenuItems} />,
+    },
+    '3d-catalog': {
+      title: 'Catalog',
+      comp: <CatalogMenuContentDemo />,
+    },
+  } satisfies Record<typeof showFloatingMenu, { title: string; comp: unknown } | null>;
+
+  return (
+    <Base>
+      {showFeatureMap === true && (
+        <FeatureMapOverlay
+          isTouchScreen={isTouchScreen}
+          viewModesText='Draw walls and rooms in 2D, view and design building in 3D'
+          wallModesText='Switch between draw and select modes'
+          drawToolsText='Draw using paths, Single lines, Poly lines, and other tools'
+          autoGenerationToolsText='Use or turn off auto generation options - wall, floor, roof, ceiling etc.'
+          featureTipButtonText='View tips, tutorials, and more'
+        />
+      )}
+      <UploadImageAssetsMenu
+        open={showImageAssetsMenu}
+        onClose={() => setShowImageAssetsMenu(false)}
+      />
+
+      {/* {showMiscSidebar === true && ( */}
+        <RightAlignedWrapper>
+          <FloatingMenu
+            title='Appearance'
+            onClose={() => setShowMiscSidebar(false)}
+          >
+            <MenuAppearanceContent />
+          </FloatingMenu>
+        </RightAlignedWrapper>
+      {/* // )} */}
+
+      <MainScreenOverlay
+        topLeft={
+          <>
+            <TopToolbarDefault closeMainOverlay={close} />
+            <CompassIcon />
+          </>
+        }
+        topCenter={
+          <AnnotatedTabs
+            chosenTab={tabIndex}
+            onClick={index => setTabIndex(index)}
+            levelName='Level 2: Second floor'
+          >
+            <Tab label='2D' />
+            <Tab label='3D' />
+            {isTouchScreen === false && (
+              <Tab label={<PersonWalkingIcon color={theme.palette.text.secondary} />} />
+            )}
+          </AnnotatedTabs>
+        }
+        topRight={
+          // <>
+          //   <Box row justify='flex-end' gap={10}>
+          //     <IconButton
+          //       icon='share'
+          //       state='default'
+          //       onClick={noop}
+          //     />
+          //     <IconButton
+          //       icon='gear'
+          //       state={showFloatingMenu === 'settings' ? 'active' : 'default'}
+          //       onClick={() => setShowFloatingMenu(e => e !== 'none' ? 'none' : 'settings')}
+          //     />
+          //   </Box>
+          //   <Box row justify='flex-end' gap={mainScreenOverlayTopRightMenuGap}>
+          //     {showDrawToolbar === true && (
+          //       <PopUpToolbar
+          //         mode='static'
+          //         orientation='vertical'
+          //         items={
+          //           <>
+          //             <ToolbarButton
+          //               icon='straightLine'
+          //               onClick={noop}
+          //             />
+          //             {isTouchScreen === true ? null : (
+          //               <ToolbarButton
+          //                 icon='multipleStraightLines'
+          //                 onClick={noop}
+          //               />
+          //             )}
+          //             <ToolbarButton
+          //               icon='rectangle'
+          //               onClick={noop}
+          //             />
+          //             <ToolbarButton
+          //               icon='hexagon'
+          //               onClick={noop}
+          //             />
+          //             <ToolbarButton
+          //               icon='curvedLine'
+          //               onClick={noop}
+          //             />
+          //             <ToolbarButton
+          //               icon='brokenCurvedLine'
+          //               onClick={noop}
+          //             />
+          //           </>
+          //         }
+          //         expandableItems={
+          //           <>
+          //             <ToolbarButton
+          //               icon='wall'
+          //               onClick={noop}
+          //             />
+          //             <ToolbarButton
+          //               icon='floor'
+          //               onClick={noop}
+          //             />
+          //             <ToolbarButton
+          //               icon='roofOnly'
+          //               onClick={noop}
+          //             />
+          //             <ToolbarButton
+          //               icon='ceiling'
+          //               onClick={noop}
+          //             />
+          //           </>
+          //         }
+          //       />
+          //     )}
+          //     {showFloatingMenu !== 'none' && (
+          //       <FloatingMenuContainer>
+          //         <FloatingMenu
+          //           title={floatingMenuContent[showFloatingMenu].title}
+          //           onClose={() => setShowFloatingMenu('none')}
+          //         >
+          //           {floatingMenuContent[showFloatingMenu].comp}
+          //         </FloatingMenu>
+          //       </FloatingMenuContainer>
+          //     )}
+
+          //     <IconMenuContainer>
+          //       <IconButton
+          //         icon='layout'
+          //         state={showDrawToolbar === true ? 'active' : 'default'}
+          //         onClick={() => setShowDrawToolbar(negate)}
+          //       />
+          //       <IconButton
+          //         icon='pointer'
+          //         state={showFeatureMap === true ? 'active' : 'default'}
+          //         onClick={() => setShowFeatureMap(negate)}
+          //       />
+          //       <IconButton
+          //         icon='layers'
+          //         state={isTouchScreen === true ? 'active' : 'default'}
+          //         onClick={() => setIsTouchScreen(negate)}
+          //       />
+          //       <IconButton
+          //         icon='eye'
+          //         state={showFloatingMenu === 'visibility' ? 'active' : 'default'}
+          //         onClick={() => setShowFloatingMenu(s => s === 'visibility' ? 'none' : 'visibility')}
+          //       />
+          //       <ImageAssetsPopup
+          //         onClick={() => setShowImageAssetsMenu(true)}
+          //       />
+          //       <IconButton
+          //         icon='stars'
+          //         variant='default'
+          //         state='active'
+          //         onClick={noop}
+          //       />
+          //       <IconButton
+          //         icon='plus'
+          //         variant='outlined'
+          //         state={showFloatingMenu === '3d-catalog' ? 'active' : 'default'}
+          //         onClick={() => setShowFloatingMenu(s => s === '3d-catalog' ? 'none' : '3d-catalog')}
+          //       />
+          //     </IconMenuContainer>
+          //   </Box>
+          // </>
+        
+        <></>}
+        bottomLeft={
+          <>
+            <IconButton
+              icon='undo'
+              {...stateProps}
+            />
+            <IconButton
+              icon='redo'
+              {...stateProps}
+            />
+          </>
+        }
+        bottomCenter={
+          <IconButton
+            icon='circleAroundDot'
+            onClick={() => setShowBottom('priority')}
+          />
+        }
+        bottomRight={
+          <AnchorTo
+            xDirection='left'
+            yDirection='top'
+            yOffset='calc(100% + 10px)'
+            anchored={
+              showBottom !== 'infopanel'
+                ? null
+                : (
+                  <InfoPanel
+                    title='Draw Mode: Line Drawing'
+                    description='Draw lines to complete a room/space. Switch to 3D view to see the space in 3D.'
+                    onClose={() => setShowBottom(null)}
+                    onPrevious={noop}
+                    onNext={noop}
+                    onStartQuickTour={() => window.alert('open tutorials')}
+                    onOpenTutorials={() => window.alert('start quick tour')}
+                  />
+                )
+            }
+          >
+            <IconButton
+              icon='hint'
+              variant='text'
+              iconColors={{
+                default: theme.palette.primary.main,
+              }}
+              onClick={() => setShowBottom(e => e === 'infopanel' ? null : 'infopanel')}
+            />
+          </AnchorTo>
+        }
+        bottomCenterPriority={
+          showBottom !== 'priority'
+            ? null
+            : (
+              <MenuItem paddingLeft>
+                <RowBackdrop>
+                  <MeasurementInputRow
+                    label='Length:'
+                    firstInput={{
+                      variant: 'light',
+                      name: '2d-asset-length-primary-unit',
+                      value: '0',
+                      onChange: noop,
+                      min: 0,
+                      adornment: '′',
+                    }}
+                    secondInput={{
+                      variant: 'light',
+                      name: '2d-asset-length-sub-unit',
+                      value: '0',
+                      onChange: noop,
+                      min: 0,
+                      adornment: '″',
+                    }}
+                  />
+                  <SecondaryButton
+                    text='Apply'
+                    onClick={() => alert('apply')}
+                  />
+                </RowBackdrop>
+                <IconButton
+                  icon='close'
+                  size='md-mobile'
+                  variant='text'
+                  onClick={() => setShowBottom(null)}
+                />
+              </MenuItem>
+            )
+        }
+      />
+    </Base>
   );
 });
 
@@ -378,41 +688,6 @@ const MiscMenuDemo = memo(() => {
       >
         <MiscMenuContent />
       </SlideUpMenu>
-    </>
-  );
-});
-
-const RightAlignedWrapper = styled('div')`
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 9999999999;
-  height: calc(100vh - 24px);
-`;
-
-const MiscDesktopMenuDemo = memo(() => {
-  const title = 'Misc desktop';
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <MainButton
-        icon='plus'
-        onClick={() => setOpen(negate)}
-        text={title}
-        variant={open === true ? 'text' : 'contained'}
-      />
-
-      {open === true && (
-        <RightAlignedWrapper>
-          <FloatingMenu
-            title='Settings'
-            onClose={() => setOpen(false)}
-          >
-            <MiscMenuContent />
-          </FloatingMenu>
-        </RightAlignedWrapper>
-      )}
     </>
   );
 });
@@ -2023,19 +2298,6 @@ const TemplateScreenDemo = memo(({ closeTemplateScreen }: { closeTemplateScreen:
   </Base>
 ));
 
-const MiscDesktopPage = memo(({ close }: { close: () => void }) => (
-  <Base>
-    <RightAlignedWrapper>
-      <FloatingMenu
-        title='Settings'
-        onClose={close}
-      >
-        <MiscMenuContent />
-      </FloatingMenu>
-    </RightAlignedWrapper>
-  </Base>
-));
-
 const PagesDemo = memo(({ closePages }: { closePages: () => void }) => {
   const [pageContent, setPageContent] = useState<PageContent>('Projects');
   const [editProjectNameId, setEditProjectNameId] = useState<string>();
@@ -2421,6 +2683,8 @@ const IconsPage = memo(({ close }: { close: () => void }) => (
   </Base>
 ));
 
+
+
 const DialogDemo = memo(() => {
   const [open, setOpen] = useState(false);
 
@@ -2604,7 +2868,6 @@ const SlideUpMenuSection = memo(() => (
     <HorizontalSection>
       <MaterialsMenuDemo />
       <MiscMenuDemo />
-      <MiscDesktopMenuDemo />
       <InitMenuDemo />
       <StairsMenuDemo />
       <CatalogMenuDemo />
@@ -2770,8 +3033,9 @@ export const App: React.FC = () => {
   const [searchCatalogValue, setSearchCatalogValue] = useState('');
   const [showMainOverlay, setShowMainOverlay] = useState(false);
   const closeMainOverlay = useCallback(() => setShowMainOverlay(false), []);
+  const [showMainOverlayWithSidebar, setShowMainOverlayWithSidebar] = useState(false);
+  const closeMainOverlayWithSidebar = useCallback(() => setShowMainOverlayWithSidebar(false), []);
   const [showPages, setShowPages] = useState(false);
-  const [showMiscDesktopPage, setShowMiscDesktopPage] = useState(false);
   const [showIconsPage, setShowIconsPage] = useState(false);
   const closePages = useCallback(() => setShowPages(false), []);
   const [showTemplateScreen, setShowTemplateScreen] = useState(false);
@@ -2789,8 +3053,8 @@ export const App: React.FC = () => {
     return <MainOverlayDemo closeMainOverlay={closeMainOverlay} />;
   }
 
-  if(showMiscDesktopPage === true) {
-    return <MiscDesktopPage close={() => setShowMiscDesktopPage(false)} />;
+  if(showMainOverlayWithSidebar === true) {
+    return <MainOverlayWithMiscDesktopSidebarPage close={closeMainOverlayWithSidebar} />;
   }
 
   if(showTemplateScreen === true) {
@@ -2801,6 +3065,7 @@ export const App: React.FC = () => {
     return <IconsPage close={() => setShowIconsPage(false)} />;
   }
 
+
   return (
     <Base>
       <Container>
@@ -2810,6 +3075,11 @@ export const App: React.FC = () => {
             icon='plus'
             onClick={() => setShowMainOverlay(negate)}
             text='main overlay'
+          />
+          <MainButton
+            icon='plus'
+            onClick={() => setShowMainOverlayWithSidebar(negate)}
+            text='main overlay + misc desktop'
           />
           <MainButton
             icon='plus'
@@ -2826,11 +3096,7 @@ export const App: React.FC = () => {
             onClick={() => setShowIconsPage(negate)}
             text='all icons'
           />
-          <MainButton
-            icon='plus'
-            onClick={() => setShowMiscDesktopPage(negate)}
-            text='misc desktop'
-          />
+
         </HorizontalSection>
 
         <SlideUpMenuSection />
