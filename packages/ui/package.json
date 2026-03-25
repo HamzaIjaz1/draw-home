@@ -10,7 +10,7 @@
     "_vite": "nodemon --delay 0.5 -e js -w ../../.env -w ../common/dist -x \"dotenv -e ../../.env -- vite --force\"",
     "dev": "concurrently -r \"npm run build:watch\" \"npm run _vite\"",
     "build:previewPage": "dotenv -e ../../.env -- vite build",
-    "build:lib": "rm -rf ./dist && npm run build:noRemove",
+    "build:lib": "rimraf ./dist && npm run build:noRemove",
     "build:noRemove": "tsc -p tsconfig.json",
     "build:watch": "concurrently -r \"npm run ts -- --preserveWatchOutput\" \"clean-tsc -w -p tsconfig.json\"",
     "preview": "vite preview"

@@ -9,7 +9,7 @@
     "lint:fix": "npm run lint -- --fix",
     "ts:noWatch": "tsc -p tsconfig.json",
     "ts": "npm run ts:noWatch -- --watch",
-    "build": "rm -rf ./dist && npm run build:noRemove",
+    "build": "rimraf ./dist && npm run build:noRemove",
     "build:noRemove": "tsc -p tsconfig.json",
     "build:watch": "concurrently -r \"npm run ts\" \"clean-tsc -w -p tsconfig.json\""
   },

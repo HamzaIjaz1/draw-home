@@ -7,11 +7,11 @@
     "lint:fix": "npm run lint -- --fix",
     "ts:noWatch": "tsc --noEmit -p tsconfig.json",
     "ts": "npm run ts:noWatch -- --watch",
-    "_next": "rm -rf ./.next && nodemon --delay 0.5 -e js -w ../../.env -x \"dotenv -e ../../.env -- next dev -p 3002\"",
+    "_next": "rimraf ./.next && nodemon --delay 0.5 -e js -w ../../.env -x \"dotenv -e ../../.env -- next dev -p 3002\"",
     "ts:watch": "npm run ts -- --preserveWatchOutput",
     "next": "npm run _next",
     "dev": "concurrently -r \"npm run ts:watch\" \"npm run next\"",
-    "build": "rm -rf ./.next && dotenv -e ../../.env -- next build",
+    "build": "rimraf ./.next && dotenv -e ../../.env -- next build",
     "start": "dotenv -e ../../.env -- next start -p 3002"
   },
   "dependencies": {

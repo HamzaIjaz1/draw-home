@@ -20,12 +20,15 @@ const { workspaces } = require('../package.json');
 const { dependencies, devDependencies } = /** @type {PackageJson} */ (
   JSON.parse(fs.readFileSync(path.resolve('package.json'), 'utf-8'))
 );
-const packageNames = (
-  execSync(`ls -d ${workspaces.join(' ')}`)
-    .toString('utf-8')
-    .trim()
-    .split('\n')
-);
+const packageNames = workspaces.flatMap(workspace => {
+  const [parent, child] = workspace.split('/');
+  if (child === '*') {
+    return fs.readdirSync(path.resolve(parent), { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => path.join(parent, dirent.name));
+  }
+  return workspace;
+});
 
 const allDependencies = packageNames.reduce((acc, cur) => {
   const pathToPackageJson = path.resolve(cur, 'package.json');
