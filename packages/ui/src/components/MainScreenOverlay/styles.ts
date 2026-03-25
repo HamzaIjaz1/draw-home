@@ -20,12 +20,12 @@ const commonCss = css`
   ${setCssVar(vars.marginY, '10px')}
 
   @media (min-width: 1200px) {
-    ${setCssVar(vars.marginX, '12px')}
-    ${setCssVar(vars.marginY, '12px')}
+    ${setCssVar(vars.marginX, '26px')}
+    ${setCssVar(vars.marginY, '26px')}
   }
   @media (min-width: 1536px) {
-    ${setCssVar(vars.marginX, '14px')}
-    ${setCssVar(vars.marginY, '14px')}
+    ${setCssVar(vars.marginX, '26px')}
+    ${setCssVar(vars.marginY, '26px')}
   }
   @media (min-width: 1800px) {
     ${setCssVar(vars.marginX, '26px')}

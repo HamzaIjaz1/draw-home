@@ -1,6 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled, ThemeProvider } from '@mui/material/styles';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useTheme } from '@mui/material';
 import { capitalize, SafeOmit } from '@draw-house/common/dist/utils';
 import { ReactCompareSliderImage } from 'react-compare-slider';
@@ -173,6 +173,85 @@ const RightAlignedWrapper = styled('div')`
   }
   .menu-category-item{
     padding: 0 0 0 16px;
+    overflow: hidden;
+  }
+  .appearance-close-button{
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+  }
+  .edit-icon{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background: transparent;
+  }
+  .materials-title{
+    flex: 0 0 auto;
+  }
+  .material-category-button{
+    width: 56px;
+    @media (max-width: 1500px) and (min-width: 1280px){
+      width: 60px;
+    }
+  }
+  .material-category-button img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  .menu-color-overlay{
+    .material-category-container{
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0;
+      @media (max-width: 1500px) and (min-width: 1280px){
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    .material-category-button{
+      width: 62px;
+      @media (max-width: 1500px) and (min-width: 1280px){
+        width: 65px;
+      }
+    }
+  }
+  .recent-color-menu{
+    label{
+      font-weight: 700;
+    }
+  }
+  .preview-menu{
+    label{
+      font-size: 14px;
+    }
+    .MuiCheckbox-root{
+      padding: 1px;
+      margin: 0 6px 0 0;
+    }
+  }
+  .transparency-menu,
+  .preview-menu{
+    margin-top: 24px;
+  }
+`;
+
+const SlideUpMenuWrapper = styled(SlideUpMenu)`
+  max-width: 300px !important;
+  z-index: 9999999999;
+  .floating-menu{
+    width: 100%;
+  }
+  .floating-menu-header{
+    min-height: 50px;
+    padding: 0 8px 2px 8px;
+  }
+  .menu-item{
+    padding: 0 6px 0 16px;
+  }
+  .menu-category-item{
+    padding: 0 0 0 16px;
+    overflow: hidden;
   }
   .appearance-close-button{
     width: 24px;
@@ -301,6 +380,14 @@ const MainOverlayWithMiscDesktopSidebarPage = memo(({
   const [isTouchScreen, setIsTouchScreen] = useState(false);
   const [showImageAssetsMenu, setShowImageAssetsMenu] = useState(false);
   const [showMiscSidebar, setShowMiscSidebar] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 1024px)').matches);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1024px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const stateProps = {
     state: isActive ? 'active' : 'default',
@@ -341,6 +428,8 @@ const MainOverlayWithMiscDesktopSidebarPage = memo(({
       />
 
       {/* {showMiscSidebar === true && ( */}
+      {/* // )} */}
+      {!isMobile ? (
         <RightAlignedWrapper className='appearance-sidebar'>
           <FloatingMenu
             title='Appearance'
@@ -353,8 +442,17 @@ const MainOverlayWithMiscDesktopSidebarPage = memo(({
             <MenuAppearanceContent />
           </FloatingMenu>
         </RightAlignedWrapper>
-      {/* // )} */}
-
+      ) : (
+        <SlideUpMenuWrapper
+          title='Appearance'
+          noDivider={true}
+          onClose={() => setShowMiscSidebar(false)}
+          onBack={() => setShowMiscSidebar(false)}
+          opened={true}
+        >
+          <MenuAppearanceContent />
+        </SlideUpMenuWrapper>
+      )}
       <MainScreenOverlay
         topLeft={
           <>
@@ -376,128 +474,127 @@ const MainOverlayWithMiscDesktopSidebarPage = memo(({
           </AnnotatedTabs>
         }
         topRight={
-          // <>
-          //   <Box row justify='flex-end' gap={10}>
-          //     <IconButton
-          //       icon='share'
-          //       state='default'
-          //       onClick={noop}
-          //     />
-          //     <IconButton
-          //       icon='gear'
-          //       state={showFloatingMenu === 'settings' ? 'active' : 'default'}
-          //       onClick={() => setShowFloatingMenu(e => e !== 'none' ? 'none' : 'settings')}
-          //     />
-          //   </Box>
-          //   <Box row justify='flex-end' gap={mainScreenOverlayTopRightMenuGap}>
-          //     {showDrawToolbar === true && (
-          //       <PopUpToolbar
-          //         mode='static'
-          //         orientation='vertical'
-          //         items={
-          //           <>
-          //             <ToolbarButton
-          //               icon='straightLine'
-          //               onClick={noop}
-          //             />
-          //             {isTouchScreen === true ? null : (
-          //               <ToolbarButton
-          //                 icon='multipleStraightLines'
-          //                 onClick={noop}
-          //               />
-          //             )}
-          //             <ToolbarButton
-          //               icon='rectangle'
-          //               onClick={noop}
-          //             />
-          //             <ToolbarButton
-          //               icon='hexagon'
-          //               onClick={noop}
-          //             />
-          //             <ToolbarButton
-          //               icon='curvedLine'
-          //               onClick={noop}
-          //             />
-          //             <ToolbarButton
-          //               icon='brokenCurvedLine'
-          //               onClick={noop}
-          //             />
-          //           </>
-          //         }
-          //         expandableItems={
-          //           <>
-          //             <ToolbarButton
-          //               icon='wall'
-          //               onClick={noop}
-          //             />
-          //             <ToolbarButton
-          //               icon='floor'
-          //               onClick={noop}
-          //             />
-          //             <ToolbarButton
-          //               icon='roofOnly'
-          //               onClick={noop}
-          //             />
-          //             <ToolbarButton
-          //               icon='ceiling'
-          //               onClick={noop}
-          //             />
-          //           </>
-          //         }
-          //       />
-          //     )}
-          //     {showFloatingMenu !== 'none' && (
-          //       <FloatingMenuContainer>
-          //         <FloatingMenu
-          //           title={floatingMenuContent[showFloatingMenu].title}
-          //           onClose={() => setShowFloatingMenu('none')}
-          //         >
-          //           {floatingMenuContent[showFloatingMenu].comp}
-          //         </FloatingMenu>
-          //       </FloatingMenuContainer>
-          //     )}
+          <>
+            <Box row justify='flex-end' gap={10}>
+              <IconButton
+                icon='share'
+                state='default'
+                onClick={noop}
+              />
+              <IconButton
+                icon='gear'
+                state={showFloatingMenu === 'settings' ? 'active' : 'default'}
+                onClick={() => setShowFloatingMenu(e => e !== 'none' ? 'none' : 'settings')}
+              />
+            </Box>
+            <Box row justify='flex-end' gap={mainScreenOverlayTopRightMenuGap}>
+              {showDrawToolbar === true && (
+                <PopUpToolbar
+                  mode='static'
+                  orientation='vertical'
+                  items={
+                    <>
+                      <ToolbarButton
+                        icon='straightLine'
+                        onClick={noop}
+                      />
+                      {isTouchScreen === true ? null : (
+                        <ToolbarButton
+                          icon='multipleStraightLines'
+                          onClick={noop}
+                        />
+                      )}
+                      <ToolbarButton
+                        icon='rectangle'
+                        onClick={noop}
+                      />
+                      <ToolbarButton
+                        icon='hexagon'
+                        onClick={noop}
+                      />
+                      <ToolbarButton
+                        icon='curvedLine'
+                        onClick={noop}
+                      />
+                      <ToolbarButton
+                        icon='brokenCurvedLine'
+                        onClick={noop}
+                      />
+                    </>
+                  }
+                  expandableItems={
+                    <>
+                      <ToolbarButton
+                        icon='wall'
+                        onClick={noop}
+                      />
+                      <ToolbarButton
+                        icon='floor'
+                        onClick={noop}
+                      />
+                      <ToolbarButton
+                        icon='roofOnly'
+                        onClick={noop}
+                      />
+                      <ToolbarButton
+                        icon='ceiling'
+                        onClick={noop}
+                      />
+                    </>
+                  }
+                />
+              )}
+              {showFloatingMenu !== 'none' && (
+                <FloatingMenuContainer>
+                  <FloatingMenu
+                    title={floatingMenuContent[showFloatingMenu].title}
+                    onClose={() => setShowFloatingMenu('none')}
+                  >
+                    {floatingMenuContent[showFloatingMenu].comp}
+                  </FloatingMenu>
+                </FloatingMenuContainer>
+              )}
 
-          //     <IconMenuContainer>
-          //       <IconButton
-          //         icon='layout'
-          //         state={showDrawToolbar === true ? 'active' : 'default'}
-          //         onClick={() => setShowDrawToolbar(negate)}
-          //       />
-          //       <IconButton
-          //         icon='pointer'
-          //         state={showFeatureMap === true ? 'active' : 'default'}
-          //         onClick={() => setShowFeatureMap(negate)}
-          //       />
-          //       <IconButton
-          //         icon='layers'
-          //         state={isTouchScreen === true ? 'active' : 'default'}
-          //         onClick={() => setIsTouchScreen(negate)}
-          //       />
-          //       <IconButton
-          //         icon='eye'
-          //         state={showFloatingMenu === 'visibility' ? 'active' : 'default'}
-          //         onClick={() => setShowFloatingMenu(s => s === 'visibility' ? 'none' : 'visibility')}
-          //       />
-          //       <ImageAssetsPopup
-          //         onClick={() => setShowImageAssetsMenu(true)}
-          //       />
-          //       <IconButton
-          //         icon='stars'
-          //         variant='default'
-          //         state='active'
-          //         onClick={noop}
-          //       />
-          //       <IconButton
-          //         icon='plus'
-          //         variant='outlined'
-          //         state={showFloatingMenu === '3d-catalog' ? 'active' : 'default'}
-          //         onClick={() => setShowFloatingMenu(s => s === '3d-catalog' ? 'none' : '3d-catalog')}
-          //       />
-          //     </IconMenuContainer>
-          //   </Box>
-          // </>
-        
-        <></>}
+              <IconMenuContainer>
+                <IconButton
+                  icon='layout'
+                  state={showDrawToolbar === true ? 'active' : 'default'}
+                  onClick={() => setShowDrawToolbar(negate)}
+                />
+                <IconButton
+                  icon='pointer'
+                  state={showFeatureMap === true ? 'active' : 'default'}
+                  onClick={() => setShowFeatureMap(negate)}
+                />
+                <IconButton
+                  icon='layers'
+                  state={isTouchScreen === true ? 'active' : 'default'}
+                  onClick={() => setIsTouchScreen(negate)}
+                />
+                <IconButton
+                  icon='eye'
+                  state={showFloatingMenu === 'visibility' ? 'active' : 'default'}
+                  onClick={() => setShowFloatingMenu(s => s === 'visibility' ? 'none' : 'visibility')}
+                />
+                <ImageAssetsPopup
+                  onClick={() => setShowImageAssetsMenu(true)}
+                />
+                <IconButton
+                  icon='stars'
+                  variant='default'
+                  state='active'
+                  onClick={noop}
+                />
+                <IconButton
+                  icon='plus'
+                  variant='outlined'
+                  state={showFloatingMenu === '3d-catalog' ? 'active' : 'default'}
+                  onClick={() => setShowFloatingMenu(s => s === '3d-catalog' ? 'none' : '3d-catalog')}
+                />
+              </IconMenuContainer>
+            </Box>
+          </>
+        }
         bottomLeft={
           <>
             <IconButton

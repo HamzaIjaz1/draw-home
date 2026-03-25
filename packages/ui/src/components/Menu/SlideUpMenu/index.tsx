@@ -43,9 +43,10 @@ export const SlideUpMenu = ({
     <FixedContent
       $noDivider={noDivider}
       $bottomSpacing={headerSpacing?.bottom}
-      $noStableScrollbarGutter={false}
+      $noStableScrollbarGutter={true}
     >
       <MenuHeader
+        className='floating-menu-header'
         text={title}
         onBack={onBack}
         onClose={onClose}
