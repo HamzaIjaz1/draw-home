@@ -10,7 +10,7 @@ const StyledInput = styled(InputBase)(({ theme }) => css`
     border: none;
     font-size: 16px;
     height: 40px;
-    padding: 0 0 0 40px;
+    padding: 0 8px 0 40px;
   }
   & ::placeholder {
     color: ${theme.palette.text.disabled};

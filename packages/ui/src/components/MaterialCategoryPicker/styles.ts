@@ -12,19 +12,19 @@ const ContainerOptions = createStyledOptions<ContainerProps>({
   wrap: true,
 });
 export const Container = styled('div', ContainerOptions)<ContainerProps>(({ wrap }) => css`
-  margin: 0 ${menuHorizontalGutterWidth}px;
+  padding: 0 ${menuHorizontalGutterWidth}px 0 0;
 
   ${wrap === true && css`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     width: 100%;
     justify-items: center;
-    gap: 2px 8px;
+    gap: 2px 6px;
   `}
 
   ${wrap === false && css`
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: nowrap;
   `}
 `);
@@ -42,7 +42,7 @@ export const MaterialButton = styled(BaseButton, MaterialButtonOptions)<Material
   border-radius: 8px;
   height: min-content;
   gap: 4px;
-  padding: 4px 2px;
+  padding: 2px 4px;
   ${size === 'sm' && css`
     width: 60px;
   `}
@@ -84,7 +84,7 @@ export const Image = styled('img', ImageOptions)<ImageProps>(({
   border-radius: ${squareImages === true ? '8px' : '50%'};
 
   ${highlightVariant === 'outline' && css`
-    border: 1px solid transparent;
+    border: 1px solid #BABABA;
     ${active === true && css`
       outline: 2px solid ${theme.palette.primary.main};
     `}
@@ -101,11 +101,10 @@ export const Image = styled('img', ImageOptions)<ImageProps>(({
 `);
 
 export const Text = styled(Typography)(({ theme }) => css`
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 100%;
   text-align: center;
   color: ${theme.palette.text.secondary};
-  width: calc(100% + 2px);
   overflow-wrap: break-word;
 `);

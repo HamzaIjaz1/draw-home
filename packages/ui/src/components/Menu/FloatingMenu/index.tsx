@@ -34,6 +34,7 @@ export type FloatingMenuProps = {
   children: React.ReactNode;
   noDivider?: boolean;
   header?: React.ReactNode;
+  noHeight?: boolean;
   noStableScrollbarGutter?: boolean;
   width?: 'fixed' | 'fit-content';
 };
@@ -50,6 +51,7 @@ export const FloatingMenu = ({
   noDivider = false,
   noStableScrollbarGutter = false,
   width = 'fixed',
+  noHeight,
 }: FloatingMenuProps & WithClassName) => (
   <MenuFrame
     className={clsx([className, floatingMenuClassName])}
@@ -61,6 +63,8 @@ export const FloatingMenu = ({
     >
       <MenuHeader
         text={title}
+        className='floating-menu-header'
+        noHeight={noHeight}
         onBack={onBack}
         onClose={onClose}
       />

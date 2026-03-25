@@ -2,20 +2,26 @@ import { memo, useState } from 'react';
 import {
   AppearanceContainer,
   AppearanceIconButton,
+  AppearanceInputsContainer,
   AppearanceSectionTitle,
   AppearanceTab,
   AppearanceTabs,
   Checkbox,
+  ImageCompareSlider,
   MaterialCategoryPicker,
   MenuItem,
   PreviewImage,
   SearchInput,
+  SliderRow,
+  SliderRowProps,
   TextField,
 } from '../components';
 import { RecentColors } from '../components/RecentColors';
 import { noop } from '../utils/noop';
-import { negate } from '../utils/negate';
 import { makeSolidColorImageUri } from '../utils';
+import { SafeOmit } from '@draw-house/common/dist/utils';
+import { ReactCompareSliderImage } from 'react-compare-slider';
+import { ArrowClockwiseIcon, BidirectionalHorizontalArrowIcon, BidirectionalVerticalArrowIcon } from '../components/Icons';
 
 const recentMaterials = [
   { id: 0, image: makeSolidColorImageUri('#888880'), name: 'Plain' },
@@ -49,13 +55,36 @@ const colorOverlayColors = [
   { id: 6, image: makeSolidColorImageUri('#8A7362'), name: '#8A7362' },
   { id: 7, image: makeSolidColorImageUri('#868578'), name: '#868578' },
   { id: 8, image: makeSolidColorImageUri('#434A54'), name: '#434A54' },
-  { id: 9, image: 'https://placehold.co/56', name: 'More' },
+  { id: 7, image: 'https://placehold.co/56', name: 'More' },
 ];
 
 const recentColorsList = [
   '#888880', '#e8e0d0', '#4a9a40', '#9bbfc8', '#c8c4a0',
   '#8a7060', '#765040', '#654030', '#543020', '#432010',
 ];
+
+const SliderRowWrap = memo(({
+  label,
+  max,
+  min,
+  step,
+  initialValue,
+  color,
+}: SafeOmit<SliderRowProps, 'value' | 'onChange'> & { initialValue: number }) => {
+  const [value, setValue] = useState(initialValue);
+
+  return (
+    <SliderRow
+      label={label}
+      value={value}
+      onChange={setValue}
+      min={min}
+      max={max}
+      step={step}
+      color={color}
+    />
+  );
+});
 
 export const MenuAppearanceContent = memo(() => {
   const [activeTab, setActiveTab] = useState(0);
@@ -78,13 +107,14 @@ export const MenuAppearanceContent = memo(() => {
 
   return (
     <>
-      <MenuItem paddingHorizontal minHeight='unset' gap={10}>
+      <MenuItem className='menu-item' paddingHorizontal minHeight='unset' gap={8}>
         <SearchInput
+          className='search-input'
           placeholder='Texture Search'
           value={searchValue}
           setValue={setSearchValue}
         />
-        <MenuItem minHeight='unset' gap={4}>
+        <MenuItem minHeight='unset' gap={8}>
           <AppearanceIconButton icon='recent' onClick={noop} />
           <AppearanceIconButton icon='arrowToHeart' onClick={noop} />
           <AppearanceIconButton icon='plus' onClick={noop} />
@@ -92,8 +122,8 @@ export const MenuAppearanceContent = memo(() => {
       </MenuItem>
 
       <AppearanceContainer>
-        <MenuItem paddingHorizontal minHeight='unset' spaceBetween>
-          <AppearanceTabs>
+        <MenuItem className='menu-item' paddingHorizontal minHeight='unset' spaceBetween>
+          <AppearanceTabs className='appearance-tabs'>
             {tabs.map(({ label, badge }, i) => (
               <AppearanceTab
                 key={label}
@@ -104,11 +134,11 @@ export const MenuAppearanceContent = memo(() => {
               />
             ))}
           </AppearanceTabs>
-          <AppearanceIconButton icon='close' onClick={noop} />
+          <AppearanceIconButton className='appearance-close-button' icon='close' onClick={noop} />
         </MenuItem>
       </AppearanceContainer>
 
-      <MenuItem>
+      <MenuItem className='menu-category-item'>
         <MaterialCategoryPicker
           options={recentMaterials}
           chosenOption={chosenMaterial}
@@ -117,8 +147,8 @@ export const MenuAppearanceContent = memo(() => {
       </MenuItem>
 
       <AppearanceContainer>
-        <MenuItem paddingHorizontal spaceBetween minHeight='unset'>
-          <AppearanceSectionTitle>Materials</AppearanceSectionTitle>
+        <MenuItem className='menu-item' paddingHorizontal gap={8} minHeight='unset'>
+          <AppearanceSectionTitle className='materials-title'>Materials</AppearanceSectionTitle>
           <AppearanceTabs>
             {materialFilterTabs.map(({ label }, i) => (
               <AppearanceTab
@@ -132,48 +162,53 @@ export const MenuAppearanceContent = memo(() => {
         </MenuItem>
       </AppearanceContainer>
 
-      <MenuItem>
+      <MenuItem className='menu-category-item'>
         <MaterialCategoryPicker
           options={materials}
           chosenOption={chosenMaterial}
           onClick={setChosenMaterial}
+          size='sm'
         />
       </MenuItem>
 
       <AppearanceContainer>
-        <MenuItem paddingHorizontal spaceBetween minHeight='unset'>
+        <MenuItem className='menu-item' paddingHorizontal gap={8} minHeight='unset'>
           <AppearanceSectionTitle>Textures</AppearanceSectionTitle>
-          <AppearanceIconButton icon='colorPicker' onClick={noop} />
+          <AppearanceIconButton className='edit-icon' icon='colorPicker' onClick={noop} />
         </MenuItem>
       </AppearanceContainer>
 
-      <MenuItem>
+      <MenuItem className='menu-category-item'>
         <MaterialCategoryPicker
           options={textures}
           chosenOption={chosenTexture}
           onClick={setChosenTexture}
+          size='sm'
         />
       </MenuItem>
 
       <AppearanceContainer>
-        <MenuItem paddingHorizontal spaceBetween minHeight='unset'>
+        <MenuItem className='menu-item' paddingHorizontal gap={8} minHeight='unset'>
           <AppearanceSectionTitle>Color Overlay</AppearanceSectionTitle>
-          <AppearanceIconButton icon='colorPicker' onClick={noop} />
+          <AppearanceIconButton className='edit-icon' icon='colorPicker' onClick={noop} />
         </MenuItem>
       </AppearanceContainer>
 
-      <MenuItem>
+      <MenuItem className='menu-item'>
         <MaterialCategoryPicker
+          className='menu-color-overlay'
           options={colorOverlayColors}
           chosenOption={chosenColor}
           onClick={setChosenColor}
+          size='sm'
           wrap
         />
       </MenuItem>
 
       <AppearanceContainer>
-        <MenuItem paddingHorizontal minHeight='unset'>
+        <MenuItem className='menu-item' paddingHorizontal minHeight='unset'>
           <RecentColors
+            className='recent-color-menu'
             label='Recent Colors'
             recentColors={recentColorsList}
             applyHexFromPalette={noop}
@@ -181,8 +216,8 @@ export const MenuAppearanceContent = memo(() => {
         </MenuItem>
       </AppearanceContainer>
 
-      <AppearanceContainer>
-        <MenuItem paddingHorizontal spaceBetween minHeight='unset'>
+      {/* <AppearanceContainer>
+        <MenuItem className='menu-item preview-menu' paddingHorizontal spaceBetween minHeight='unset'>
           <AppearanceSectionTitle>Preview</AppearanceSectionTitle>
           <Checkbox
             checked={shouldCompare}
@@ -192,12 +227,76 @@ export const MenuAppearanceContent = memo(() => {
         </MenuItem>
       </AppearanceContainer>
 
-      <MenuItem paddingHorizontal center>
+      <MenuItem className='menu-item' paddingHorizontal center>
         <PreviewImage src={makeSolidColorImageUri('#c8b090')} />
-      </MenuItem>
-
+      </MenuItem> */}
       <AppearanceContainer>
-        <MenuItem paddingHorizontal>
+        <MenuItem className='menu-item preview-menu' paddingHorizontal spaceBetween minHeight='unset'>
+          <AppearanceSectionTitle>Preview</AppearanceSectionTitle>
+          <Checkbox
+            checked={shouldCompare}
+            onClick={() => setShouldCompare(s => s === false)}
+            text='Compare to Original'
+          />
+        </MenuItem>
+      </AppearanceContainer>
+      {
+        shouldCompare === true ? (
+          <MenuItem className='menu-item image-compare-menu' paddingHorizontal spaceBetween>
+            <ImageCompareSlider
+              imgOne={<ReactCompareSliderImage src={makeSolidColorImageUri('#ed8282')} />}
+              imgTwo={<ReactCompareSliderImage src={makeSolidColorImageUri('#81c14b')} />}
+            />
+            <AppearanceInputsContainer>
+              <MenuItem>
+                <TextField
+                  type='number'
+                  size='sm'
+                  label={<BidirectionalHorizontalArrowIcon />}
+                  value='0.5'
+                  onChange={noop}
+                  adornment='m'
+                />
+              </MenuItem>
+              <MenuItem>
+                <TextField
+                  type='number'
+                  size='sm'
+                  label={<BidirectionalVerticalArrowIcon />}
+                  value='0.5'
+                  onChange={noop}
+                  adornment='m'
+                />
+              </MenuItem>
+              <MenuItem>
+                <TextField
+                  type='number'
+                  size='sm'
+                  label={<ArrowClockwiseIcon />}
+                  value='45'
+                  onChange={noop}
+                  adornment='°'
+                />
+              </MenuItem>
+            </AppearanceInputsContainer>
+          </MenuItem>
+        ) : (
+          <MenuItem className='menu-item image-compare-menu' paddingHorizontal center>
+            <PreviewImage src={makeSolidColorImageUri('#81c14b')} />
+          </MenuItem>
+        )
+      }
+      <MenuItem className='menu-item transparency-menu' paddingHorizontal paddingVertical='md'>
+        <SliderRowWrap
+          label='Transparency'
+          initialValue={0.4}
+          min={0}
+          max={1}
+          step={0.001}
+        />
+      </MenuItem>
+      {/* <AppearanceContainer>
+        <MenuItem className='menu-item' paddingHorizontal>
           <TextField
             type='number'
             size='sm'
@@ -207,7 +306,7 @@ export const MenuAppearanceContent = memo(() => {
             adornment='m'
           />
         </MenuItem>
-      </AppearanceContainer>
+      </AppearanceContainer> */}
     </>
   );
 });

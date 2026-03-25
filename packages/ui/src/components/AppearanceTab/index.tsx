@@ -29,9 +29,7 @@ export const AppearanceTab = ({
     </Label>
 
     {isUndefined(badgeLabel) ? null : (
-      <span>
-        <BadgeLabel $state={state}>{badgeLabel}</BadgeLabel>
-      </span>
+      <BadgeLabel $state={state}>{badgeLabel}</BadgeLabel>
     )}
   </Container>
 );

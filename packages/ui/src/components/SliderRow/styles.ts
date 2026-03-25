@@ -18,11 +18,14 @@ export const Row = styled('div')`
 
 export const Label = styled('label')(({ theme }) => css`
   font-weight: 400;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 100%;
   letter-spacing: 0px;
   color: ${theme.palette.text.secondary};
   overflow-wrap: break-word;
+  @media (max-width: 1500px) and (min-width: 1280px){
+    font-size: 17px;
+  }
 `);
 
 export const sliderColorCssVar: CssVariable = '--ui-slider-color';

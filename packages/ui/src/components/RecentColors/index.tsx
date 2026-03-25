@@ -15,7 +15,7 @@ export type RecentColorsProps = {
 const RecentColorsWrapper = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
 `;
 export const Stack = styled('div')`
   width: 100%;

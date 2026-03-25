@@ -152,10 +152,87 @@ const HorizontalSection = styled('section')`
 
 const RightAlignedWrapper = styled('div')`
   position: fixed;
-  top: 12px;
-  right: 12px;
+  top: 26px;
+  right: 94px;
   z-index: 9999999999;
-  height: calc(100vh - 24px);
+  height: calc(100vh - 54px);
+  max-width: 300px;
+  width: 100%;
+  @media (max-width: 1500px) and (min-width: 1280px){
+    max-width: 390px;
+  }
+  .floating-menu{
+    width: 100%;
+  }
+  .floating-menu-header{
+    min-height: 50px;
+    padding: 0 8px 2px 8px;
+  }
+  .menu-item{
+    padding: 0 6px 0 16px;
+  }
+  .menu-category-item{
+    padding: 0 0 0 16px;
+  }
+  .appearance-close-button{
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+  }
+  .edit-icon{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background: transparent;
+  }
+  .materials-title{
+    flex: 0 0 auto;
+  }
+  .material-category-button{
+    width: 56px;
+    @media (max-width: 1500px) and (min-width: 1280px){
+      width: 60px;
+    }
+  }
+  .material-category-button img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  .menu-color-overlay{
+    .material-category-container{
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0;
+      @media (max-width: 1500px) and (min-width: 1280px){
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    .material-category-button{
+      width: 62px;
+      @media (max-width: 1500px) and (min-width: 1280px){
+        width: 65px;
+      }
+    }
+  }
+  .recent-color-menu{
+    label{
+      font-weight: 700;
+    }
+  }
+  .preview-menu{
+    label{
+      font-size: 14px;
+    }
+    .MuiCheckbox-root{
+      padding: 1px;
+      margin: 0 6px 0 0;
+    }
+  }
+  .transparency-menu,
+  .preview-menu{
+    margin-top: 24px;
+  }
 `;
 
 const Base = ({ children }: { children: React.ReactNode }) => (
@@ -264,10 +341,14 @@ const MainOverlayWithMiscDesktopSidebarPage = memo(({
       />
 
       {/* {showMiscSidebar === true && ( */}
-        <RightAlignedWrapper>
+        <RightAlignedWrapper className='appearance-sidebar'>
           <FloatingMenu
             title='Appearance'
+            noDivider={true}
+            noHeight={true}
+            noStableScrollbarGutter={true}
             onClose={() => setShowMiscSidebar(false)}
+            onBack={() => setShowMiscSidebar(false)}
           >
             <MenuAppearanceContent />
           </FloatingMenu>

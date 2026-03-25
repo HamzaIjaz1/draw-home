@@ -17,8 +17,8 @@ export const Container = styled('button', $props())<$Props<CommonProps>>(({ them
   display: flex;
   align-items: center;
   gap: 2px;
-  height: 28px;
-  padding: 4px 6px;
+  min-height: 28px;
+  padding: 4px 9px;
   border-radius: 6px;
   background-color: ${lookup($state, {
     default: theme.palette.background.paper,
@@ -29,11 +29,15 @@ export const Container = styled('button', $props())<$Props<CommonProps>>(({ them
 `);
 
 export const Label = styled(Typography, $props())<$Props<CommonProps>>(({ theme, $state }) => css`
-  font-weight: 400;
-  font-size: 17px;
+  // font-weight: 400;
+  font-size: 14px;
   line-height: 100%;
   letter-spacing: 0px;
   text-align: center;
+  font-weight: ${lookup($state, {
+    default: 400,
+    active: 700,
+  })};
   color: ${lookup($state, {
     default: theme.palette.text.primary,
     active: '#fff',
@@ -47,14 +51,13 @@ export const BadgeLabel = styled(Typography, $props())<$Props<CommonProps>>(({ t
   line-height: 15px;
   letter-spacing: 0px;
   text-align: center;
-  vertical-align: bottom;
+  // vertical-align: bottom;
   color: ${theme.palette.primary.main};
   background-color: ${lookup($state, {
     default: '#f1f1f1',
     active: theme.palette.background.paper,
   })};
   border-radius: 100px;
-  padding-right: 2px;
-  padding-left: 2px;
+  padding: 0 3.5px;
 `);
 BadgeLabel.defaultProps = identity<TypographyProps>({ component: 'span' });

@@ -34,12 +34,13 @@ export function MaterialCategoryPicker<T extends number>({
   size = 'md',
 }: MaterialCategoryPickerProps<T> & WithClassName) {
   const content = (
-    <Container wrap={wrap}>
+    <Container className='material-category-container' wrap={wrap}>
       {options.map(({ id, image, name }) => (
         <MaterialButton
           key={id}
           onClick={() => onClick(id)}
           size={size}
+          className='material-category-button'
         >
           <Image
             src={image}

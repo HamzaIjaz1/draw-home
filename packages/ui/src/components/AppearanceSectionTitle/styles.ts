@@ -4,7 +4,7 @@ import { identity } from '../../utils/identity';
 
 export const Title = styled(Typography)(({ theme }) => css`
   font-weight: 700;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 100%;
   letter-spacing: 0px;
   color: ${theme.palette.text.secondary};
@@ -14,5 +14,8 @@ export const Title = styled(Typography)(({ theme }) => css`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  @media (max-width: 1500px) and (min-width: 1280px){
+    font-size: 17px;
+  }
 `);
 Title.defaultProps = identity<TypographyProps>({ component: 'span' });

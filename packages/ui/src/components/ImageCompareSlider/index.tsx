@@ -4,9 +4,11 @@ import { css, styled } from '@mui/material';
 import { SliderHandle } from './SliderHandle';
 
 export const ImgStyles = css`
-  width: 187px;
-  height: 187px;
+  width: 100%;
+  max-width: 190px !important;
+  height: auto;
   border-radius: 50%;
+  aspect-ratio: 1/1;
 `;
 
 const ReactCompareSlider = styled(BaseReactCompareSlider)`

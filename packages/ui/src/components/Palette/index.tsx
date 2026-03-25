@@ -48,16 +48,16 @@ export const PaletteColorButton = styled('button', btnOpts)<PaletteColorButtonPr
   active,
   highlightVariant = 'outline',
 }) => css`
-  width: 30px;
-  height: 30px;
-  border: 0.5px solid ${theme.palette.text.secondary};
+  width: 24px;
+  height: 24px;
+  border: 0.8px solid ${theme.palette.text.secondary};
   border-radius: 50%;
   background: ${background};
   background-size: cover;
   cursor: pointer;
 
   ${highlightVariant === 'outline' && css`
-    border: 1px solid transparent;
+    border: 1px solid #BABABA;
     ${active && css`
       outline: 2px solid ${theme.palette.primary.main};
       outline-offset: 2px;

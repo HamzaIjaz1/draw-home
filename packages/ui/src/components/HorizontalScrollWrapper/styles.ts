@@ -8,7 +8,7 @@ export const Container = styled('div', $props())<$Props<{
   width: 100%;
 
   ${$showScrollbar === true && css`
-    padding-bottom: 6px;
+    padding-bottom: 16px;
   `}
 `);
 
