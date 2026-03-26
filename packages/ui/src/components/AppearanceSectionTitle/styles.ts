@@ -14,8 +14,5 @@ export const Title = styled(Typography)(({ theme }) => css`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  @media (max-width: 1500px) and (min-width: 1280px){
-    font-size: 17px;
-  }
 `);
 Title.defaultProps = identity<TypographyProps>({ component: 'span' });

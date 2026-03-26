@@ -23,9 +23,6 @@ export const Label = styled('label')(({ theme }) => css`
   letter-spacing: 0px;
   color: ${theme.palette.text.secondary};
   overflow-wrap: break-word;
-  @media (max-width: 1500px) and (min-width: 1280px){
-    font-size: 17px;
-  }
 `);
 
 export const sliderColorCssVar: CssVariable = '--ui-slider-color';

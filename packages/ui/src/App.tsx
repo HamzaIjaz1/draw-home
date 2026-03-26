@@ -158,9 +158,6 @@ const RightAlignedWrapper = styled('div')`
   height: calc(100vh - 54px);
   max-width: 300px;
   width: 100%;
-  @media (max-width: 1500px) and (min-width: 1280px){
-    max-width: 390px;
-  }
   .floating-menu{
     width: 100%;
   }
@@ -192,9 +189,6 @@ const RightAlignedWrapper = styled('div')`
   }
   .material-category-button{
     width: 56px;
-    @media (max-width: 1500px) and (min-width: 1280px){
-      width: 60px;
-    }
   }
   .material-category-button img{
     width: 100%;
@@ -205,15 +199,9 @@ const RightAlignedWrapper = styled('div')`
     .material-category-container{
       grid-template-columns: repeat(4, 1fr);
       padding: 0;
-      @media (max-width: 1500px) and (min-width: 1280px){
-        grid-template-columns: repeat(5, 1fr);
-      }
     }
     .material-category-button{
       width: 62px;
-      @media (max-width: 1500px) and (min-width: 1280px){
-        width: 65px;
-      }
     }
   }
   .recent-color-menu{
@@ -270,9 +258,6 @@ const SlideUpMenuWrapper = styled(SlideUpMenu)`
   }
   .material-category-button{
     width: 56px;
-    @media (max-width: 1500px) and (min-width: 1280px){
-      width: 60px;
-    }
   }
   .material-category-button img{
     width: 100%;
@@ -283,15 +268,9 @@ const SlideUpMenuWrapper = styled(SlideUpMenu)`
     .material-category-container{
       grid-template-columns: repeat(4, 1fr);
       padding: 0;
-      @media (max-width: 1500px) and (min-width: 1280px){
-        grid-template-columns: repeat(5, 1fr);
-      }
     }
     .material-category-button{
       width: 62px;
-      @media (max-width: 1500px) and (min-width: 1280px){
-        width: 65px;
-      }
     }
   }
   .recent-color-menu{

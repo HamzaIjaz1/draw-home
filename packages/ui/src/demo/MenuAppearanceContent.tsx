@@ -27,40 +27,38 @@ const recentMaterials = [
   { id: 0, image: makeSolidColorImageUri('#888880'), name: 'Plain' },
   { id: 1, image: makeSolidColorImageUri('#c8c4be'), name: 'Stucco' },
   { id: 2, image: makeSolidColorImageUri('#DDCDA6'), name: '#DDCDA6' },
-  { id: 3, image: 'https://placehold.co/56', name: 'Brick' },
+  { id: 3, image: '/assets/brick-image.png', name: 'Brick' },
 ];
 
 const materials = [
   { id: 0, image: makeSolidColorImageUri('#111111'), name: 'Plain' },
-  { id: 1, image: 'https://placehold.co/56', name: 'Shingles' },
-  { id: 2, image: 'https://placehold.co/56', name: 'Metal' },
-  { id: 3, image: 'https://placehold.co/56', name: 'Tile' },
+  { id: 1, image: '/assets/shingles-image.png', name: 'Shingles' },
+  { id: 2, image: '/assets/metal-image.png', name: 'Metal' },
+  { id: 3, image: '/assets/tile-image.png', name: 'Tile' },
 ];
 
 const textures = [
-  { id: 0, image: makeSolidColorImageUri('#9a9a9a'), name: 'Monolith' },
-  { id: 1, image: makeSolidColorImageUri('#6b6b6b'), name: 'Concrete Block' },
-  { id: 2, image: makeSolidColorImageUri('#b0b0a8'), name: 'Facade' },
-  { id: 3, image: makeSolidColorImageUri('#9c9c8e'), name: 'Slag Block' },
-  { id: 4, image: makeSolidColorImageUri('#7a7a7a'), name: 'Foamed' },
+  { id: 0, image: '/assets/light-cedar-image.png', name: 'Light Cedar' },
+  { id: 1, image: '/assets/gray-uniform-image.png', name: 'Gray Uniform' },
+  { id: 2, image: '/assets/charcoal-wood-image.png', name: 'Charcoal Wood' },
+  { id: 3, image: '/assets/dark-cedar-image.png', name: 'Dark Cedar' },
+  { id: 4, image: '/assets/dark-cedar-image2.png', name: 'Dark Cedar' },
 ];
 
 const colorOverlayColors = [
   { id: 0, image: makeSolidColorImageUri('#FFE5C0'), name: '#FFE5C0' },
-  { id: 1, image: makeSolidColorImageUri('#F3E6D4'), name: '#F3E6D4' },
-  { id: 2, image: makeSolidColorImageUri('#988F85'), name: '#988F85' },
-  { id: 3, image: makeSolidColorImageUri('#DEDDD1'), name: '#DEDDD1' },
-  { id: 4, image: makeSolidColorImageUri('#ADB8C0'), name: '#ADB8C0' },
+  { id: 1, image: makeSolidColorImageUri('#FFE5C0'), name: '#FFE5C0' },
+  { id: 2, image: makeSolidColorImageUri('#FFE5C0'), name: '#FFE5C0' },
+  { id: 3, image: makeSolidColorImageUri('#F3E6D4'), name: '#F3E6D4' },
+  { id: 4, image: makeSolidColorImageUri('#DEDDD1'), name: '#DEDDD1' },
   { id: 5, image: makeSolidColorImageUri('#DDCDA6'), name: '#DDCDA6' },
-  { id: 6, image: makeSolidColorImageUri('#8A7362'), name: '#8A7362' },
-  { id: 7, image: makeSolidColorImageUri('#868578'), name: '#868578' },
-  { id: 8, image: makeSolidColorImageUri('#434A54'), name: '#434A54' },
-  { id: 7, image: 'https://placehold.co/56', name: 'More' },
+  { id: 6, image: makeSolidColorImageUri('#868578'), name: '#868578' },
+  { id: 7, image: '/assets/more-gradiant-image.png', name: 'More' },
 ];
 
 const recentColorsList = [
-  '#888880', '#e8e0d0', '#4a9a40', '#9bbfc8', '#c8c4a0',
-  '#8a7060', '#765040', '#654030', '#543020', '#432010',
+  '#988F85', '#F3E6D4', '#6AA84F', '#ADB8C0', '#DDCDA6',
+  '#8A7362', '#8A7362', '#434A54',
 ];
 
 const SliderRowWrap = memo(({
@@ -244,8 +242,8 @@ export const MenuAppearanceContent = memo(() => {
         shouldCompare === true ? (
           <MenuItem className='menu-item image-compare-menu' paddingHorizontal spaceBetween>
             <ImageCompareSlider
-              imgOne={<ReactCompareSliderImage src={makeSolidColorImageUri('#ed8282')} />}
-              imgTwo={<ReactCompareSliderImage src={makeSolidColorImageUri('#81c14b')} />}
+              imgOne={<ReactCompareSliderImage src={makeSolidColorImageUri('#988F85')} />}
+              imgTwo={<ReactCompareSliderImage src='/assets/preview-image-placeholder.png' />}
             />
             <AppearanceInputsContainer>
               <MenuItem>
@@ -282,7 +280,7 @@ export const MenuAppearanceContent = memo(() => {
           </MenuItem>
         ) : (
           <MenuItem className='menu-item image-compare-menu' paddingHorizontal center>
-            <PreviewImage src={makeSolidColorImageUri('#81c14b')} />
+            <PreviewImage src='/assets/preview-image-placeholder.png' />
           </MenuItem>
         )
       }
